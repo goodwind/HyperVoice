@@ -15,6 +15,19 @@ HyperVoice is two Android services and a settings screen. What each can see and 
 - **Recogniser.** It answers apps that ask for speech recognition through Android's `RecognitionService`; any
   app may ask, as with Google's. What an app asks for is what the remote hears while it is listening.
 
+## The setup page and updates
+
+- **Setup page.** While the app's screen is open it listens on a random port of the TV's home-network address and
+  serves one page for giving it the key. The address contains a random token made for that visit, is shown only in the
+  QR code, and nothing else on that port answers. It is plain HTTP: anyone who can watch your home network while you
+  use it can read the key. It stops when the screen closes.
+- **`WRITE_SECURE_SETTINGS`.** Never asked of the person; if you give it once over `adb`, the app can turn on its own
+  accessibility service and recogniser (and nothing else) when you press *Fix*.
+- **Updates.** The app asks `api.github.com` for the latest release of `goodwind/HyperVoice`, takes only a file under
+  that repository's own `releases/download`, refuses it unless its SHA-256 equals the digest GitHub announced for it,
+  and hands it to Android's installer, which asks you to confirm and refuses a file not signed with the key of the
+  copy it replaces. A release never carries a Groq key.
+
 ## The key
 
 The Groq key is kept in the app's private storage (`SharedPreferences`), and is never logged. A build that was made
@@ -42,4 +55,4 @@ Please do not open a public issue for a security problem. Use GitHub's
 for this repository. You will get a first answer within about a week. If the report holds, a fix is
 released and credited to you, if you wish.
 
-Supported: the latest build from `main` (there is no release yet).
+Supported: the latest release.

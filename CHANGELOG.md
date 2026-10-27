@@ -4,9 +4,9 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [0.1.0] - 2026-10-28
 
-Pre-release: not published yet, built from source.
+First release.
 
 ### Added
 
@@ -25,8 +25,19 @@ Pre-release: not published yet, built from source.
   more; a refused key and a spent limit are not.
 - Interface in English and Russian.
 
+- With no microphone button either, an optional switch (off by default) presses the app's search button, waits for
+  the search field to take focus and dictates into it.
+- A settings screen with the state of the setup (permission, accessibility service, recogniser, key, remote) and a
+  *Fix* button for what the app can put right, given `WRITE_SECURE_SETTINGS` once over `adb`.
+- A QR code on that screen opens a page on the phone (plain HTTP on the home network, while the screen is open) to
+  give the Whisper key, checked with Groq; the options are sliders and the languages have a screen of their own.
+- Updates: the app checks GitHub for a newer release and offers to install it, after checking the file against the
+  digest GitHub announced; the system installer asks for the confirmation.
+- 20 languages, the same as HyperMissions, in the app and on the key page.
+- Releases are signed with a key kept outside the repository and never carry a Groq key.
+
 ### Known limits
 
-- Needs the internet and a Groq key; the key is given with `adb` for now.
-- The accessibility service and the recogniser are switched on with `adb`.
+- Needs the internet and a Groq key.
+- The accessibility service and the recogniser are switched on with `adb` the first time.
 - Tested on one TV only: Xiaomi MiTV-MFTR0 (Android 11) with its Bluetooth voice remote.

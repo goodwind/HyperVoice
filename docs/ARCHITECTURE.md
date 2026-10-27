@@ -1,7 +1,9 @@
 # Architecture
 
-Kotlin, one module, no libraries beyond the Android platform. The logic is plain Kotlin in `core` and is tested
-on the JVM; the Android side around it is thin.
+Kotlin, two Gradle modules: `shared` (how a request gets out, versions and the update check, the checked download and
+the hand-over to Android's installer: the same code HyperMissions carries) and `app`. One library beyond the Android
+platform: ZXing core, for the QR code. The logic is plain Kotlin in `core` and is tested on the JVM; the Android side
+around it is thin.
 
 ```
 app/src/main/java/io/github/goodwind/hypervoice/
@@ -15,14 +17,26 @@ app/src/main/java/io/github/goodwind/hypervoice/
 │   ├── Outcome.kt                what came of a phrase, and which SpeechRecognizer error it is
 │   ├── TextInsertion.kt          typing into a field that holds text; tidying a transcript (Dictation)
 │   ├── Languages.kt              the languages Whisper can be primed with, and the hint made from them
-│   └── MicButton.kt              telling an app's microphone button from the rest of its screen
+│   ├── MicButton.kt              telling an app's microphone button from the rest of its screen
+│   ├── SearchButton.kt           the same for an app's search button
+│   ├── KeyPlan.kt                what the remote's button does: dictate, press the mic button, open the search, or ask for the key
+│   ├── KeyCheck.kt               whether a Groq key is accepted (the list of models, which costs nothing)
+│   ├── SetupStatus.kt            what is in place and what the Fix button can put right
+│   ├── SetupWeb.kt               the key page's routes and rules, with no sockets
+│   ├── HttpWire.kt               just enough HTTP/1.1 for that page
+│   └── AccessibilityList.kt      adding a service to the secure setting without disturbing the others
 ├── RemoteMic.kt                  AudioRecord on the remote's microphone
 ├── Hub.kt                        who is listening: an app's session, or dictation
 ├── HyperVoiceRecognitionService.kt   the system speech recogniser, for apps' microphone buttons
 ├── HyperVoiceAccessibilityService.kt the remote's microphone button; typing into the focused field
 ├── Overlay.kt                    the small note over the screen
-├── Settings.kt                   the key and the languages
-├── SettingsActivity.kt           their screen
+├── Settings.kt                   the key, the languages and the two options
+├── SettingsActivity.kt           the header (state, Fix, QR, update), the options, the footer
+├── LanguagesActivity.kt          the languages, as sliders
+├── SetupServer.kt, SetupPage.kt  the sockets and the page a phone gets (in the app's 20 languages)
+├── Repair.kt                     reads the state of the setup, and puts the two secure settings right
+├── Qr.kt, Network.kt             the QR code, and the TV's address on the home network
+├── Ui.kt                         the palette and the widgets (focus rows, sliders, progress pill)
 └── Notices.kt                    an Outcome as a sentence in the TV's language
 ```
 
@@ -64,7 +78,9 @@ accessibility service only ends its phrase when the button is let go. Otherwise 
 - a focused, editable field takes the text at its cursor (`TextInsertion`), one sentence without its full stop;
 - else, if the window has an app's own microphone button, it is pressed (`MicButton` decides what is one), and the
   app starts a session through the recogniser, which is the first case;
-- else the text goes to the clipboard and the note says so.
+- else, with the *open search* option on and a search button in the window, that is pressed and the text goes to the
+  field that takes focus;
+- else nothing happens: no sound, no note, no clip sent (`KeyPlan` decides).
 
 ## Why Whisper
 

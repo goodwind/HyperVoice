@@ -10,7 +10,8 @@ It includes the following third-party material:
   Copyright Google LLC and the Noto Project Authors, SIL Open Font License 1.1.
   https://github.com/notofonts
 
-The app has no libraries beyond the Android platform. The unit tests use JUnit 4 (Eclipse Public
+The app uses ZXing core (com.google.zxing:core, https://github.com/zxing/zxing) to draw the QR code, Copyright ZXing
+authors, Apache License 2.0. Beyond it there are no libraries but the Android platform. The unit tests use JUnit 4 (Eclipse Public
 License 1.0) and org.json (the JSON License), which are pulled in by Gradle for testing only and are
 not part of the app.
 

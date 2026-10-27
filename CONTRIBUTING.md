@@ -24,7 +24,7 @@ what a hint needs. Better example commands for a language are a welcome change.
 
 ## Code
 
-Kotlin, no libraries beyond the Android platform.
+Kotlin. The app has one library beyond the Android platform: ZXing's core, for the QR code.
 
 ```bash
 ./gradlew testDebugUnitTest assembleDebug     # JDK 17, Android SDK platform 36
@@ -41,8 +41,9 @@ Kotlin, no libraries beyond the Android platform.
 
 ## Releases
 
-Not yet. When there are, maintainers sign them with a key kept outside the repository, tag `vX.Y.Z`, attach the APK
-and its SHA-256, and add the release to [CHANGELOG](CHANGELOG.md).
+Maintainers sign them with a key kept outside the repository (`local/signing.properties`), tag `vX.Y.Z`, attach the
+APK and its SHA-256, and add the release to [CHANGELOG](CHANGELOG.md). The app offers the latest release to the
+people who have it installed, so a release is also an update.
 
 ## License
 
