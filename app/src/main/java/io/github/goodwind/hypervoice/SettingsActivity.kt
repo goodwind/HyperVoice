@@ -62,9 +62,10 @@ class SettingsActivity : Activity() {
         }
         val column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(48), dp(28), dp(48), dp(28))
+            setPadding(dp(48), dp(20), dp(48), dp(14))
             addView(header, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-            addView(rows)
+            addView(rows, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
+            addView(footer())
         }
         setContentView(ScrollView(this).apply {
             setBackgroundColor(Ink.BACKGROUND)
@@ -112,6 +113,16 @@ class SettingsActivity : Activity() {
         url = "http://$ip:$port/$token/"
     }
 
+    /** Who made it, under what licence, and where the source is. */
+    private fun footer() = label(
+        getString(R.string.footer_line, try { packageManager.getPackageInfo(packageName, 0).versionName } catch (e: Exception) { "" }),
+        13f, Ink.SECONDARY,
+    ).apply {
+        gravity = Gravity.CENTER
+        setPadding(0, dp(12), 0, 0)
+        layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
+
     private fun refreshRows() {
         val on = getString(R.string.state_on)
         val off = getString(R.string.state_off)
@@ -127,7 +138,13 @@ class SettingsActivity : Activity() {
         header.removeAllViews()
 
         val left = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        left.addView(label(getString(R.string.app_name), 28f, bold = true))
+        left.addView(
+            LinearLayout(this).apply {
+                gravity = Gravity.CENTER_VERTICAL
+                addView(ImageView(this@SettingsActivity).apply { setImageResource(R.drawable.ic_launcher) }, LinearLayout.LayoutParams(dp(48), dp(48)).apply { marginEnd = dp(14) })
+                addView(label(getString(R.string.app_name), 28f, bold = true))
+            },
+        )
         left.addView(
             when {
                 failed -> label(getString(R.string.status_repair_failed), 18f, Ink.RED, bold = true)

@@ -38,4 +38,5 @@
     <string name="languages_hint">Whisper is told which languages to expect. OK adds or removes one.</string>
     <string name="languages_defaults">Reset to the defaults for this TV</string>
     <string name="key_scan_caption_change">The key is set. To change it, scan with your phone and enter the new Whisper (Groq) key</string>
+    <string name="footer_line">HyperVoice %1$s · © 2026 Alexandr Serdtsev · Apache License 2.0 · github.com/goodwind/HyperVoice</string>
 </resources>

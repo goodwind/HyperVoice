@@ -26,6 +26,11 @@ android {
 
     buildFeatures { buildConfig = true }
 
+    buildTypes {
+        // The key of the owner's machine is for debug builds only; a release never carries one.
+        release { buildConfigField("String", "GROQ_KEY", "\"\"") }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
