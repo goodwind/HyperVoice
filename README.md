@@ -21,7 +21,7 @@ of any app. For TVs whose firmware has no working voice assistant. No root.
 
 Xiaomi's TVs sold with a voice remote answer it with a voice assistant that is Chinese-only, and people who
 clean the firmware up (or live outside China) end up without it. Apps have no help either: the microphone
-button in SmartTube's search, in a keyboard, in any Leanback app, asks Android's speech recogniser, and a TV
+button in an app's search, in a keyboard, in any TV app, asks Android's speech recogniser, and a TV
 without Google's services has none that works. So the remote has a microphone and nobody listens to it.
 
 HyperVoice listens to it.
@@ -87,7 +87,7 @@ More in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## What it cannot do
 
-- **Work offline.** It needs the internet and a Groq key. An offline model was tried (Vosk) and was far less
+- **Work offline.** It needs the internet and a Groq key. An offline model was tried and was far less
   accurate; it is not included.
 - **Work with any remote.** It relies on how Xiaomi's voice remote and Bluetooth service present the
   microphone. Other TVs and remotes are untested.
@@ -99,7 +99,7 @@ More in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 ## Tested on
 
 - Xiaomi MiTV-MFTR0 (Android 11) with its Bluetooth voice remote: dictation into a field, and the microphone
-  button in SmartTube's search.
+  button in an app's search.
 
 Reports from other TVs are welcome.
 
@@ -114,12 +114,6 @@ JDK 17 and the Android SDK (platform 36):
 The APK is in `app/build/outputs/apk/debug/`. A build can carry a key for your own use: put it in
 `~/.cache/hypervoice/groq.key` before building and it is baked into the APK (never into the repository).
 Do not share an APK built that way.
-
-## Related
-
-- [HyperMissions](https://github.com/goodwind/HyperMissions), app permissions for the same TVs: HyperVoice needs
-  the microphone permission, and that is where to see it.
-- [Aerial](https://github.com/pengchujin/aerial-tv), a launcher for Android TV.
 
 ## License
 
