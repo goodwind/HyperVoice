@@ -16,6 +16,8 @@ Pre-release: not published yet, built from source.
   hold it, speak, and the text is typed into the focused field of any app, at the cursor.
 - With no field in focus, the service presses the app's own microphone button (Leanback's
   `lb_search_bar_speech_orb`, or a button whose description names voice input).
+- An optional switch (off by default): with no field and no microphone button, press the app's search button,
+  wait for the search field to take focus, and dictate into it.
 - Whisper is primed with the languages the person chose: English and the language of the TV by default.
 - A note over the screen for what is going on (*Listening…*, *Recognizing…*, or the failure), and the
   settings opened at once if there is no key.

@@ -26,5 +26,5 @@
     <string name="settings_languages">Languages: %1$s</string>
     <string name="settings_languages_header">Options and languages (OK toggles):</string>
     <string name="option_press_mic">Press an app’s microphone button when no field is in focus</string>
-    <string name="option_open_search">Open an app’s search, then dictate (experimental)</string>
+    <string name="option_open_search">Open an app’s search, then dictate</string>
 </resources>

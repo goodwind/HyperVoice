@@ -34,6 +34,8 @@ HyperVoice listens to it.
   has focus, in any app, at the cursor.
 - **No field in focus?** It presses the app's own microphone button for you (found by its accessibility id or
   description), so the app handles the text its own way, a search box for one.
+- **No microphone button either?** Optionally (a switch in the app) it presses the app's search button, waits
+  for the search field to take focus, and types what you said into it.
 - **Several languages in one phrase.** Whisper is told which languages to expect (English and the language of
   the TV by default; you choose in the app), so "включи клип Imagine Dragons" comes out as written.
 - A small note over the screen says what is going on: *Listening…*, *Recognizing…*, or what went wrong.

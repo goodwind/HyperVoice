@@ -25,5 +25,5 @@
     <string name="settings_languages">Языки: %1$s</string>
     <string name="settings_languages_header">Параметры и языки (OK: включить или выключить):</string>
     <string name="option_press_mic">Нажимать кнопку микрофона приложения, если нет поля ввода</string>
-    <string name="option_open_search">Открывать поиск приложения и диктовать (эксперимент)</string>
+    <string name="option_open_search">Открывать поиск приложения и диктовать</string>
 </resources>
