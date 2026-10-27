@@ -53,4 +53,50 @@ class LanguagesTest {
         assertEquals(codes.size, codes.toSet().size)
         assertTrue(Languages.all.all { it.name.isNotBlank() && it.english.isNotBlank() && it.commands.isNotBlank() })
     }
+
+    // The default languages follow where the TV is: the device's language, then what is spoken in its country
+    // (the country of the locale, or of the time zone when the locale has none), at most two, and English.
+
+    @Test fun `a locale and a country that agree`() {
+        assertEquals(listOf("en", "ru"), Languages.defaults("ru", "RU"))
+        assertEquals(listOf("en", "de"), Languages.defaults("de", "DE"))
+        assertEquals(listOf("en", "de"), Languages.defaults("de", "AT"))
+        assertEquals(listOf("en", "es"), Languages.defaults("es", "MX"))
+    }
+
+    @Test fun `the two languages most used in a country`() {
+        assertEquals(listOf("en", "kk", "ru"), Languages.defaults("kk", "KZ"))
+        assertEquals(listOf("en", "uk", "ru"), Languages.defaults("uk", "UA"))
+        assertEquals(listOf("en", "be", "ru"), Languages.defaults("be", "BY"))
+    }
+
+    @Test fun `a Russian TV in Kazakhstan gets Kazakh too, by its time zone`() {
+        assertEquals(listOf("en", "ru", "kk"), Languages.defaults("ru", "", "Asia/Almaty"))
+        assertEquals(listOf("en", "ru", "kk"), Languages.defaults("ru", "RU", "Asia/Almaty"))
+    }
+
+    @Test fun `an English speaking country is English alone`() {
+        assertEquals(listOf("en"), Languages.defaults("en", "US", "America/New_York"))
+        assertEquals(listOf("en"), Languages.defaults("en", "GB"))
+    }
+
+    @Test fun `a country that is not known falls back to the language of the locale`() {
+        assertEquals(listOf("en", "fr"), Languages.defaults("fr", "CA"))
+        assertEquals(listOf("en", "tr"), Languages.defaults("tr", "ZZ"))
+    }
+
+    @Test fun `no more than two languages besides English`() {
+        assertEquals(listOf("en", "ru", "kk"), Languages.defaults("ru", "KZ", "Asia/Almaty"))
+        assertEquals(3, Languages.defaults("uk", "BY", "Europe/Kyiv").size)
+    }
+
+    @Test fun `a language that is not offered is dropped`() {
+        assertEquals(listOf("en"), Languages.defaults("xx", "ZZ"))
+        assertEquals(listOf("en", "ru"), Languages.defaults("xx", "RU"))
+    }
+
+    @Test fun `the languages to choose from include the common ones`() {
+        val codes = Languages.all.map { it.code }
+        for (c in listOf("en", "ru", "kk", "uk", "tr", "de", "fr", "es", "pt", "it", "pl", "ja", "ko", "zh", "ar", "hi", "uz", "az", "ka", "hy")) assertTrue(c, c in codes)
+    }
 }

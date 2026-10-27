@@ -1,5 +1,8 @@
 package io.github.goodwind.hypervoice.core
 
+import io.github.goodwind.hypervoice.shared.Reply
+import io.github.goodwind.hypervoice.shared.Request
+import io.github.goodwind.hypervoice.shared.Transport
 import java.io.IOException
 import org.json.JSONException
 import org.json.JSONObject

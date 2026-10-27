@@ -1,5 +1,8 @@
 package io.github.goodwind.hypervoice.core
 
+import io.github.goodwind.hypervoice.shared.Reply
+import io.github.goodwind.hypervoice.shared.Request
+import io.github.goodwind.hypervoice.shared.Transport
 import java.io.IOException
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -7,6 +10,7 @@ import org.junit.Test
 
 private class FakeTransport(private val replies: MutableList<Any>) : Transport {
     val requests = mutableListOf<Request>()
+    override fun get(request: Request): Reply = error("not used")
     override fun post(request: Request): Reply {
         requests += request
         val next = replies.removeAt(0)
