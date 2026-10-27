@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">रिमोट का माइक्रोफ़ोन बटन: आप जो बोलते हैं वह फ़ोकस वाले फ़ील्ड में टाइप हो जाता है। डिक्टेशन के लिए ज़रूरी है।</string>
+    <string name="overlay_listening">सुन रहा है…</string>
+    <string name="overlay_recognizing">पहचान रहा है…</string>
+    <string name="overlay_no_field">कोई इनपुट फ़ील्ड नहीं: %1$s</string>
+    <string name="set_key">Whisper कुंजी सेट करें</string>
+    <string name="notice_no_speech">समझ नहीं आया</string>
+    <string name="notice_timeout">कुछ सुनाई नहीं दिया</string>
+    <string name="notice_no_audio">माइक्रोफ़ोन तक पहुँच नहीं</string>
+    <string name="notice_no_key">Groq कुंजी नहीं है</string>
+    <string name="notice_unauthorized">Groq कुंजी अस्वीकृत</string>
+    <string name="notice_rate_limited">Groq की सीमा पूरी हो गई</string>
+    <string name="notice_server">Groq त्रुटि %1$d</string>
+    <string name="notice_network">Groq से कनेक्ट नहीं हो सका</string>
+    <string name="option_press_mic">फ़ील्ड फ़ोकस में न होने पर ऐप का माइक्रोफ़ोन बटन दबाएँ</string>
+    <string name="option_open_search">ऐप की खोज खोलें, फिर बोलकर लिखें</string>
+    <string name="status_ready">सब तैयार है</string>
+    <string name="status_needs_attention">ध्यान देने की ज़रूरत है</string>
+    <string name="status_repair_failed">टीवी की सेटिंग नहीं बदली जा सकीं</string>
+    <string name="check_permission">माइक्रोफ़ोन अनुमति</string>
+    <string name="check_accessibility">रिमोट का माइक्रोफ़ोन बटन (एक्सेसिबिलिटी सेवा)</string>
+    <string name="check_recognizer">ऐप्स में वॉइस इनपुट (HyperVoice पहचानकर्ता है)</string>
+    <string name="check_key">Whisper कुंजी (Groq)</string>
+    <string name="check_remote">वॉइस रिमोट मिल गया</string>
+    <string name="action_repair">ठीक करें</string>
+    <string name="hint_no_repair">ऐप से ठीक करने के लिए उसे एक बार WRITE_SECURE_SETTINGS अनुमति दें (README देखें)।</string>
+    <string name="key_scan_caption">फ़ोन से स्कैन करें और Whisper (Groq) कुंजी दर्ज करें</string>
+    <string name="key_no_network">फ़ोन से Whisper कुंजी दर्ज करने के लिए टीवी को घर के नेटवर्क से जोड़ें।</string>
+    <string name="settings_languages">भाषाएँ</string>
+    <string name="languages_title">भाषाएँ</string>
+    <string name="languages_hint">Whisper को पहले से बता दिया जाता है कि कौन-सी भाषाएँ आ सकती हैं। OK से भाषा जोड़ें या हटाएँ।</string>
+    <string name="languages_defaults">इस टीवी के लिए डिफ़ॉल्ट पर लौटें</string>
+    <string name="key_scan_caption_change">कुंजी सेट है। बदलने के लिए फ़ोन से स्कैन करें और नई Whisper (Groq) कुंजी दर्ज करें</string>
+    <string name="update_available">अपडेट %1$s उपलब्ध है</string>
+    <string name="update_install">इंस्टॉल करें</string>
+    <string name="update_downloading">डाउनलोड हो रहा है…</string>
+    <string name="update_installing">इंस्टॉलर को सौंपा जा रहा है…</string>
+    <string name="update_failed">अपडेट विफल: %1$s</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">El botón de micrófono del mando: lo que digas se escribe en el campo con foco. Necesario para dictar.</string>
+    <string name="overlay_listening">Escuchando…</string>
+    <string name="overlay_recognizing">Reconociendo…</string>
+    <string name="overlay_no_field">Sin campo de entrada: %1$s</string>
+    <string name="set_key">Configurar la clave de Whisper</string>
+    <string name="notice_no_speech">No te he entendido</string>
+    <string name="notice_timeout">No se oye nada</string>
+    <string name="notice_no_audio">Sin acceso al micrófono</string>
+    <string name="notice_no_key">Falta la clave de Groq</string>
+    <string name="notice_unauthorized">Clave de Groq rechazada</string>
+    <string name="notice_rate_limited">Límite de Groq alcanzado</string>
+    <string name="notice_server">Error de Groq %1$d</string>
+    <string name="notice_network">No se puede conectar con Groq</string>
+    <string name="option_press_mic">Pulsar el botón de micrófono de la app si no hay un campo con foco</string>
+    <string name="option_open_search">Abrir la búsqueda de la app y dictar</string>
+    <string name="status_ready">Todo listo</string>
+    <string name="status_needs_attention">Requiere atención</string>
+    <string name="status_repair_failed">No se pudieron cambiar los ajustes de la TV</string>
+    <string name="check_permission">Permiso de micrófono</string>
+    <string name="check_accessibility">Botón de micrófono del mando (servicio de accesibilidad)</string>
+    <string name="check_recognizer">Entrada de voz en las apps (HyperVoice es el reconocedor)</string>
+    <string name="check_key">Clave de Whisper (Groq)</string>
+    <string name="check_remote">Mando de voz encontrado</string>
+    <string name="action_repair">Arreglar</string>
+    <string name="hint_no_repair">Para arreglarlo desde la app, concédele una vez el permiso WRITE_SECURE_SETTINGS (consulta el README).</string>
+    <string name="key_scan_caption">Escanea con el móvil e introduce la clave de Whisper (Groq)</string>
+    <string name="key_no_network">Conecta la TV a tu red doméstica para introducir la clave de Whisper desde el móvil.</string>
+    <string name="settings_languages">Idiomas</string>
+    <string name="languages_title">Idiomas</string>
+    <string name="languages_hint">Whisper sabe de antemano qué idiomas esperar. OK añade o quita uno.</string>
+    <string name="languages_defaults">Restablecer los valores predeterminados de esta TV</string>
+    <string name="key_scan_caption_change">La clave está configurada. Para cambiarla, escanea con el móvil e introduce la nueva clave de Whisper (Groq)</string>
+    <string name="update_available">Actualización %1$s disponible</string>
+    <string name="update_install">Instalar</string>
+    <string name="update_downloading">Descargando…</string>
+    <string name="update_installing">Pasando al instalador…</string>
+    <string name="update_failed">Falló la actualización: %1$s</string>
+</resources>

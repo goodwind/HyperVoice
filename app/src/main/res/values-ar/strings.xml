@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">زر الميكروفون في جهاز التحكم: ما تقوله يُكتب في الحقل المحدد. مطلوب للإملاء.</string>
+    <string name="overlay_listening">جارٍ الاستماع…</string>
+    <string name="overlay_recognizing">جارٍ التعرّف…</string>
+    <string name="overlay_no_field">لا يوجد حقل إدخال: %1$s</string>
+    <string name="set_key">إعداد مفتاح Whisper</string>
+    <string name="notice_no_speech">لم أفهم</string>
+    <string name="notice_timeout">لم أسمع شيئًا</string>
+    <string name="notice_no_audio">لا يمكن الوصول إلى الميكروفون</string>
+    <string name="notice_no_key">لا يوجد مفتاح Groq</string>
+    <string name="notice_unauthorized">تم رفض مفتاح Groq</string>
+    <string name="notice_rate_limited">تم بلوغ حد Groq</string>
+    <string name="notice_server">خطأ Groq %1$d</string>
+    <string name="notice_network">تعذّر الاتصال بـ Groq</string>
+    <string name="option_press_mic">اضغط زر الميكروفون في التطبيق عند عدم وجود حقل محدد</string>
+    <string name="option_open_search">افتح بحث التطبيق ثم أملِ</string>
+    <string name="status_ready">كل شيء جاهز</string>
+    <string name="status_needs_attention">يحتاج إلى انتباه</string>
+    <string name="status_repair_failed">تعذّر تغيير إعدادات التلفاز</string>
+    <string name="check_permission">إذن الميكروفون</string>
+    <string name="check_accessibility">زر الميكروفون في جهاز التحكم (خدمة إمكانية الوصول)</string>
+    <string name="check_recognizer">الإدخال الصوتي في التطبيقات (HyperVoice هو المتعرّف)</string>
+    <string name="check_key">مفتاح Whisper (Groq)</string>
+    <string name="check_remote">تم العثور على جهاز التحكم الصوتي</string>
+    <string name="action_repair">إصلاح</string>
+    <string name="hint_no_repair">للإصلاح من التطبيق، امنحه إذن WRITE_SECURE_SETTINGS مرة واحدة (راجع README).</string>
+    <string name="key_scan_caption">امسح الرمز بهاتفك وأدخل مفتاح Whisper (Groq)</string>
+    <string name="key_no_network">صِل التلفاز بشبكة منزلك لإدخال مفتاح Whisper من الهاتف.</string>
+    <string name="settings_languages">اللغات</string>
+    <string name="languages_title">اللغات</string>
+    <string name="languages_hint">يعرف Whisper مسبقًا اللغات المتوقعة. زر موافق يضيف لغة أو يزيلها.</string>
+    <string name="languages_defaults">استعادة الإعدادات الافتراضية لهذا التلفاز</string>
+    <string name="key_scan_caption_change">تم ضبط المفتاح. لتغييره، امسح الرمز بهاتفك وأدخل مفتاح Whisper (Groq) الجديد</string>
+    <string name="update_available">تحديث %1$s متاح</string>
+    <string name="update_install">تثبيت</string>
+    <string name="update_downloading">جارٍ التنزيل…</string>
+    <string name="update_installing">جارٍ التسليم للمثبّت…</string>
+    <string name="update_failed">فشل التحديث: %1$s</string>
+</resources>

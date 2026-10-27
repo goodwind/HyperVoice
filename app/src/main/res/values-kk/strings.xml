@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Пульттегі микрофон түймесі: айтқаныңыз енгізу өрісіне басылады. Диктовка үшін қажет.</string>
+    <string name="overlay_listening">Тыңдап тұрмын…</string>
+    <string name="overlay_recognizing">Танып жатырмын…</string>
+    <string name="overlay_no_field">Енгізу өрісі жоқ: %1$s</string>
+    <string name="set_key">Whisper кілтін орнату</string>
+    <string name="notice_no_speech">Түсінбедім</string>
+    <string name="notice_timeout">Ештеңе естілмеді</string>
+    <string name="notice_no_audio">Микрофонға қол жеткізу жоқ</string>
+    <string name="notice_no_key">Groq кілті жоқ</string>
+    <string name="notice_unauthorized">Groq кілті қабылданбады</string>
+    <string name="notice_rate_limited">Groq шегіне жетті</string>
+    <string name="notice_server">Groq қатесі %1$d</string>
+    <string name="notice_network">Groq-қа қосылу мүмкін емес</string>
+    <string name="option_press_mic">Өріс болмаса, қолданбаның микрофон түймесін басу</string>
+    <string name="option_open_search">Қолданба іздеуін ашып, диктовка жасау</string>
+    <string name="status_ready">Бәрі бапталған</string>
+    <string name="status_needs_attention">Назар аудару керек</string>
+    <string name="status_repair_failed">Теледидар параметрлерін өзгерту мүмкін болмады</string>
+    <string name="check_permission">Микрофонға рұқсат</string>
+    <string name="check_accessibility">Пульттегі микрофон түймесі (арнайы мүмкіндіктер қызметі)</string>
+    <string name="check_recognizer">Қолданбалардағы дауыспен енгізу (HyperVoice танымалдағышы)</string>
+    <string name="check_key">Whisper кілті (Groq)</string>
+    <string name="check_remote">Дауыс пульті табылды</string>
+    <string name="action_repair">Түзету</string>
+    <string name="hint_no_repair">Қолданбадан түзету үшін оған WRITE_SECURE_SETTINGS рұқсатын бір рет беріңіз (README қараңыз).</string>
+    <string name="key_scan_caption">Телефонмен сканерлеп, Whisper (Groq) кілтін енгізіңіз</string>
+    <string name="key_no_network">Whisper кілтін телефоннан енгізу үшін теледидарды үй желісіне қосыңыз.</string>
+    <string name="settings_languages">Тілдер</string>
+    <string name="languages_title">Тілдер</string>
+    <string name="languages_hint">Whisper қандай тілдерді күту керегін алдын ала біледі. OK тілді қосады немесе алып тастайды.</string>
+    <string name="languages_defaults">Осы теледидар үшін әдепкі мәндерге қайтару</string>
+    <string name="key_scan_caption_change">Кілт орнатылған. Ауыстыру үшін телефонмен сканерлеп, жаңа Whisper (Groq) кілтін енгізіңіз</string>
+    <string name="update_available">%1$s жаңартуы қолжетімді</string>
+    <string name="update_install">Орнату</string>
+    <string name="update_downloading">Жүктелуде…</string>
+    <string name="update_installing">Орнатқышқа беріледі…</string>
+    <string name="update_failed">Жаңарту сәтсіз: %1$s</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">遥控器上的麦克风键：您说的话会输入到当前聚焦的输入框。听写功能需要它。</string>
+    <string name="overlay_listening">正在聆听…</string>
+    <string name="overlay_recognizing">正在识别…</string>
+    <string name="overlay_no_field">没有输入框：%1$s</string>
+    <string name="set_key">设置 Whisper 密钥</string>
+    <string name="notice_no_speech">没听清</string>
+    <string name="notice_timeout">什么也没听到</string>
+    <string name="notice_no_audio">无法访问麦克风</string>
+    <string name="notice_no_key">没有 Groq 密钥</string>
+    <string name="notice_unauthorized">Groq 密钥被拒绝</string>
+    <string name="notice_rate_limited">已达到 Groq 限额</string>
+    <string name="notice_server">Groq 错误 %1$d</string>
+    <string name="notice_network">无法连接 Groq</string>
+    <string name="option_press_mic">没有输入框时点按应用自己的麦克风按钮</string>
+    <string name="option_open_search">打开应用的搜索，然后听写</string>
+    <string name="status_ready">一切就绪</string>
+    <string name="status_needs_attention">需要注意</string>
+    <string name="status_repair_failed">无法更改电视设置</string>
+    <string name="check_permission">麦克风权限</string>
+    <string name="check_accessibility">遥控器麦克风键（无障碍服务）</string>
+    <string name="check_recognizer">应用内语音输入（HyperVoice 为识别器）</string>
+    <string name="check_key">Whisper 密钥（Groq）</string>
+    <string name="check_remote">已找到语音遥控器</string>
+    <string name="action_repair">修复</string>
+    <string name="hint_no_repair">要从应用内修复，请一次性授予它 WRITE_SECURE_SETTINGS 权限（见 README）。</string>
+    <string name="key_scan_caption">用手机扫描并输入 Whisper（Groq）密钥</string>
+    <string name="key_no_network">请将电视连接到家庭网络，以便用手机输入 Whisper 密钥。</string>
+    <string name="settings_languages">语言</string>
+    <string name="languages_title">语言</string>
+    <string name="languages_hint">Whisper 会预先知道要识别哪些语言。按“确定”添加或移除。</string>
+    <string name="languages_defaults">恢复此电视的默认设置</string>
+    <string name="key_scan_caption_change">密钥已设置。如需更改，请用手机扫描并输入新的 Whisper（Groq）密钥</string>
+    <string name="update_available">有可用更新 %1$s</string>
+    <string name="update_install">安装</string>
+    <string name="update_downloading">正在下载…</string>
+    <string name="update_installing">正在交给安装程序…</string>
+    <string name="update_failed">更新失败：%1$s</string>
+</resources>

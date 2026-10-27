@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">リモコンのマイクボタン：話した内容がフォーカス中の入力欄に入力されます。音声入力に必要です。</string>
+    <string name="overlay_listening">聞いています…</string>
+    <string name="overlay_recognizing">認識しています…</string>
+    <string name="overlay_no_field">入力欄がありません：%1$s</string>
+    <string name="set_key">Whisper キーを設定</string>
+    <string name="notice_no_speech">聞き取れませんでした</string>
+    <string name="notice_timeout">何も聞こえませんでした</string>
+    <string name="notice_no_audio">マイクにアクセスできません</string>
+    <string name="notice_no_key">Groq キーがありません</string>
+    <string name="notice_unauthorized">Groq キーが拒否されました</string>
+    <string name="notice_rate_limited">Groq の上限に達しました</string>
+    <string name="notice_server">Groq エラー %1$d</string>
+    <string name="notice_network">Groq に接続できません</string>
+    <string name="option_press_mic">入力欄がないときはアプリのマイクボタンを押す</string>
+    <string name="option_open_search">アプリの検索を開いて音声入力する</string>
+    <string name="status_ready">準備完了</string>
+    <string name="status_needs_attention">確認が必要です</string>
+    <string name="status_repair_failed">テレビの設定を変更できませんでした</string>
+    <string name="check_permission">マイクの権限</string>
+    <string name="check_accessibility">リモコンのマイクボタン（ユーザー補助サービス）</string>
+    <string name="check_recognizer">アプリ内の音声入力（HyperVoice が認識エンジン）</string>
+    <string name="check_key">Whisper キー（Groq）</string>
+    <string name="check_remote">音声リモコンが見つかりました</string>
+    <string name="action_repair">修復</string>
+    <string name="hint_no_repair">アプリから修復するには、WRITE_SECURE_SETTINGS 権限を一度だけ付与してください（README を参照）。</string>
+    <string name="key_scan_caption">スマートフォンでスキャンして Whisper（Groq）キーを入力</string>
+    <string name="key_no_network">スマートフォンから Whisper キーを入力するには、テレビを家庭内ネットワークに接続してください。</string>
+    <string name="settings_languages">言語</string>
+    <string name="languages_title">言語</string>
+    <string name="languages_hint">Whisper には認識する言語を事前に伝えます。OK で追加または削除します。</string>
+    <string name="languages_defaults">このテレビの既定値に戻す</string>
+    <string name="key_scan_caption_change">キーは設定済みです。変更するには、スマートフォンでスキャンして新しい Whisper（Groq）キーを入力してください</string>
+    <string name="update_available">アップデート %1$s があります</string>
+    <string name="update_install">インストール</string>
+    <string name="update_downloading">ダウンロード中…</string>
+    <string name="update_installing">インストーラーに渡しています…</string>
+    <string name="update_failed">アップデートに失敗: %1$s</string>
+</resources>

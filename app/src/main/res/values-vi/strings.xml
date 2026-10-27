@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Nút micro trên điều khiển: lời bạn nói sẽ được gõ vào ô nhập đang được chọn. Cần cho chức năng đọc chính tả.</string>
+    <string name="overlay_listening">Đang nghe…</string>
+    <string name="overlay_recognizing">Đang nhận dạng…</string>
+    <string name="overlay_no_field">Không có ô nhập: %1$s</string>
+    <string name="set_key">Thiết lập khóa Whisper</string>
+    <string name="notice_no_speech">Không nghe rõ</string>
+    <string name="notice_timeout">Không nghe thấy gì</string>
+    <string name="notice_no_audio">Không truy cập được micro</string>
+    <string name="notice_no_key">Chưa có khóa Groq</string>
+    <string name="notice_unauthorized">Khóa Groq bị từ chối</string>
+    <string name="notice_rate_limited">Đã đạt giới hạn Groq</string>
+    <string name="notice_server">Lỗi Groq %1$d</string>
+    <string name="notice_network">Không kết nối được Groq</string>
+    <string name="option_press_mic">Nhấn nút micro của ứng dụng khi không có ô nhập nào được chọn</string>
+    <string name="option_open_search">Mở tìm kiếm của ứng dụng rồi đọc chính tả</string>
+    <string name="status_ready">Mọi thứ đã sẵn sàng</string>
+    <string name="status_needs_attention">Cần chú ý</string>
+    <string name="status_repair_failed">Không thể thay đổi cài đặt của TV</string>
+    <string name="check_permission">Quyền micro</string>
+    <string name="check_accessibility">Nút micro trên điều khiển (dịch vụ trợ năng)</string>
+    <string name="check_recognizer">Nhập bằng giọng nói trong ứng dụng (HyperVoice là bộ nhận dạng)</string>
+    <string name="check_key">Khóa Whisper (Groq)</string>
+    <string name="check_remote">Đã tìm thấy điều khiển giọng nói</string>
+    <string name="action_repair">Sửa</string>
+    <string name="hint_no_repair">Để sửa từ ứng dụng, hãy cấp cho nó quyền WRITE_SECURE_SETTINGS một lần (xem README).</string>
+    <string name="key_scan_caption">Quét bằng điện thoại và nhập khóa Whisper (Groq)</string>
+    <string name="key_no_network">Hãy kết nối TV với mạng gia đình để nhập khóa Whisper từ điện thoại.</string>
+    <string name="settings_languages">Ngôn ngữ</string>
+    <string name="languages_title">Ngôn ngữ</string>
+    <string name="languages_hint">Whisper được báo trước sẽ gặp những ngôn ngữ nào. OK để thêm hoặc bỏ một ngôn ngữ.</string>
+    <string name="languages_defaults">Khôi phục mặc định cho TV này</string>
+    <string name="key_scan_caption_change">Khóa đã được đặt. Để đổi, hãy quét bằng điện thoại và nhập khóa Whisper (Groq) mới</string>
+    <string name="update_available">Có bản cập nhật %1$s</string>
+    <string name="update_install">Cài đặt</string>
+    <string name="update_downloading">Đang tải…</string>
+    <string name="update_installing">Đang chuyển cho trình cài đặt…</string>
+    <string name="update_failed">Cập nhật không thành công: %1$s</string>
+</resources>

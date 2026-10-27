@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Кнопка мікрофона на пульті: усе, що ви скажете, буде надруковано в полі введення. Потрібна для диктування.</string>
+    <string name="overlay_listening">Слухаю…</string>
+    <string name="overlay_recognizing">Розпізнаю…</string>
+    <string name="overlay_no_field">Немає поля введення: %1$s</string>
+    <string name="set_key">Налаштувати ключ Whisper</string>
+    <string name="notice_no_speech">Не розчув</string>
+    <string name="notice_timeout">Нічого не чути</string>
+    <string name="notice_no_audio">Немає доступу до мікрофона</string>
+    <string name="notice_no_key">Немає ключа Groq</string>
+    <string name="notice_unauthorized">Ключ Groq відхилено</string>
+    <string name="notice_rate_limited">Ліміт Groq вичерпано</string>
+    <string name="notice_server">Помилка Groq %1$d</string>
+    <string name="notice_network">Немає зв’язку з Groq</string>
+    <string name="option_press_mic">Натискати кнопку мікрофона застосунку, якщо немає поля введення</string>
+    <string name="option_open_search">Відкривати пошук застосунку й диктувати</string>
+    <string name="status_ready">Усе налаштовано</string>
+    <string name="status_needs_attention">Потрібна увага</string>
+    <string name="status_repair_failed">Не вдалося змінити налаштування ТВ</string>
+    <string name="check_permission">Доступ до мікрофона</string>
+    <string name="check_accessibility">Кнопка мікрофона на пульті (служба доступності)</string>
+    <string name="check_recognizer">Голосове введення в застосунках (розпізнавач HyperVoice)</string>
+    <string name="check_key">Ключ Whisper (Groq)</string>
+    <string name="check_remote">Голосовий пульт знайдено</string>
+    <string name="action_repair">Виправити</string>
+    <string name="hint_no_repair">Щоб виправляти із застосунку, один раз надайте йому дозвіл WRITE_SECURE_SETTINGS (див. README).</string>
+    <string name="key_scan_caption">Скануйте телефоном і введіть ключ Whisper (Groq)</string>
+    <string name="key_no_network">Підключіть ТВ до домашньої мережі, щоб ввести ключ Whisper із телефона.</string>
+    <string name="settings_languages">Мови</string>
+    <string name="languages_title">Мови</string>
+    <string name="languages_hint">Whisper заздалегідь знає, які мови очікувати. OK додає або прибирає мову.</string>
+    <string name="languages_defaults">Повернути типові налаштування для цього ТВ</string>
+    <string name="key_scan_caption_change">Ключ задано. Щоб змінити, скануйте телефоном і введіть новий ключ Whisper (Groq)</string>
+    <string name="update_available">Доступне оновлення %1$s</string>
+    <string name="update_install">Встановити</string>
+    <string name="update_downloading">Завантажую…</string>
+    <string name="update_installing">Передаю інсталятору…</string>
+    <string name="update_failed">Не вдалося оновити: %1$s</string>
+</resources>

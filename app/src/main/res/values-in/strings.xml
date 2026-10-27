@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Tombol mikrofon di remote: ucapan Anda diketik ke kolom yang sedang difokuskan. Diperlukan untuk dikte.</string>
+    <string name="overlay_listening">Mendengarkan…</string>
+    <string name="overlay_recognizing">Mengenali…</string>
+    <string name="overlay_no_field">Tidak ada kolom input: %1$s</string>
+    <string name="set_key">Atur kunci Whisper</string>
+    <string name="notice_no_speech">Tidak terdengar jelas</string>
+    <string name="notice_timeout">Tidak ada yang terdengar</string>
+    <string name="notice_no_audio">Tidak bisa mengakses mikrofon</string>
+    <string name="notice_no_key">Tidak ada kunci Groq</string>
+    <string name="notice_unauthorized">Kunci Groq ditolak</string>
+    <string name="notice_rate_limited">Batas Groq tercapai</string>
+    <string name="notice_server">Kesalahan Groq %1$d</string>
+    <string name="notice_network">Tidak dapat menjangkau Groq</string>
+    <string name="option_press_mic">Tekan tombol mikrofon aplikasi saat tidak ada kolom yang difokuskan</string>
+    <string name="option_open_search">Buka pencarian aplikasi, lalu dikte</string>
+    <string name="status_ready">Semua siap</string>
+    <string name="status_needs_attention">Perlu perhatian</string>
+    <string name="status_repair_failed">Tidak dapat mengubah pengaturan TV</string>
+    <string name="check_permission">Izin mikrofon</string>
+    <string name="check_accessibility">Tombol mikrofon remote (layanan aksesibilitas)</string>
+    <string name="check_recognizer">Input suara di aplikasi (HyperVoice sebagai pengenal)</string>
+    <string name="check_key">Kunci Whisper (Groq)</string>
+    <string name="check_remote">Remote suara ditemukan</string>
+    <string name="action_repair">Perbaiki</string>
+    <string name="hint_no_repair">Untuk memperbaiki dari aplikasi, berikan izin WRITE_SECURE_SETTINGS satu kali (lihat README).</string>
+    <string name="key_scan_caption">Pindai dengan ponsel dan masukkan kunci Whisper (Groq)</string>
+    <string name="key_no_network">Hubungkan TV ke jaringan rumah untuk memasukkan kunci Whisper dari ponsel.</string>
+    <string name="settings_languages">Bahasa</string>
+    <string name="languages_title">Bahasa</string>
+    <string name="languages_hint">Whisper diberi tahu lebih dulu bahasa apa yang diharapkan. OK menambah atau menghapus bahasa.</string>
+    <string name="languages_defaults">Kembalikan ke default untuk TV ini</string>
+    <string name="key_scan_caption_change">Kunci sudah diatur. Untuk mengubahnya, pindai dengan ponsel dan masukkan kunci Whisper (Groq) yang baru</string>
+    <string name="update_available">Pembaruan %1$s tersedia</string>
+    <string name="update_install">Pasang</string>
+    <string name="update_downloading">Mengunduh…</string>
+    <string name="update_installing">Menyerahkan ke pemasang…</string>
+    <string name="update_failed">Pembaruan gagal: %1$s</string>
+</resources>

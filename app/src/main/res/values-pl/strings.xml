@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Przycisk mikrofonu na pilocie: to, co powiesz, zostanie wpisane w aktywne pole. Potrzebny do dyktowania.</string>
+    <string name="overlay_listening">Słucham…</string>
+    <string name="overlay_recognizing">Rozpoznaję…</string>
+    <string name="overlay_no_field">Brak pola wprowadzania: %1$s</string>
+    <string name="set_key">Skonfiguruj klucz Whisper</string>
+    <string name="notice_no_speech">Nie zrozumiałem</string>
+    <string name="notice_timeout">Nic nie usłyszałem</string>
+    <string name="notice_no_audio">Brak dostępu do mikrofonu</string>
+    <string name="notice_no_key">Brak klucza Groq</string>
+    <string name="notice_unauthorized">Klucz Groq odrzucony</string>
+    <string name="notice_rate_limited">Osiągnięto limit Groq</string>
+    <string name="notice_server">Błąd Groq %1$d</string>
+    <string name="notice_network">Nie można połączyć z Groq</string>
+    <string name="option_press_mic">Naciskaj przycisk mikrofonu aplikacji, gdy żadne pole nie jest aktywne</string>
+    <string name="option_open_search">Otwórz wyszukiwanie aplikacji, a potem dyktuj</string>
+    <string name="status_ready">Wszystko gotowe</string>
+    <string name="status_needs_attention">Wymaga uwagi</string>
+    <string name="status_repair_failed">Nie udało się zmienić ustawień telewizora</string>
+    <string name="check_permission">Uprawnienie do mikrofonu</string>
+    <string name="check_accessibility">Przycisk mikrofonu na pilocie (usługa dostępności)</string>
+    <string name="check_recognizer">Wprowadzanie głosowe w aplikacjach (HyperVoice jest rozpoznawaczem)</string>
+    <string name="check_key">Klucz Whisper (Groq)</string>
+    <string name="check_remote">Znaleziono pilota głosowego</string>
+    <string name="action_repair">Napraw</string>
+    <string name="hint_no_repair">Aby naprawiać z poziomu aplikacji, nadaj jej raz uprawnienie WRITE_SECURE_SETTINGS (zobacz README).</string>
+    <string name="key_scan_caption">Zeskanuj telefonem i wpisz klucz Whisper (Groq)</string>
+    <string name="key_no_network">Połącz telewizor z siecią domową, aby wpisać klucz Whisper z telefonu.</string>
+    <string name="settings_languages">Języki</string>
+    <string name="languages_title">Języki</string>
+    <string name="languages_hint">Whisper z góry wie, jakich języków się spodziewać. OK dodaje lub usuwa język.</string>
+    <string name="languages_defaults">Przywróć ustawienia domyślne dla tego telewizora</string>
+    <string name="key_scan_caption_change">Klucz jest ustawiony. Aby go zmienić, zeskanuj telefonem i wpisz nowy klucz Whisper (Groq)</string>
+    <string name="update_available">Dostępna aktualizacja %1$s</string>
+    <string name="update_install">Zainstaluj</string>
+    <string name="update_downloading">Pobieranie…</string>
+    <string name="update_installing">Przekazywanie instalatorowi…</string>
+    <string name="update_failed">Aktualizacja nie powiodła się: %1$s</string>
+</resources>

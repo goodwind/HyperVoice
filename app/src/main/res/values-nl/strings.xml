@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">De microfoonknop op de afstandsbediening: wat u zegt wordt getypt in het veld met focus. Nodig om te dicteren.</string>
+    <string name="overlay_listening">Luisteren…</string>
+    <string name="overlay_recognizing">Herkennen…</string>
+    <string name="overlay_no_field">Geen invoerveld: %1$s</string>
+    <string name="set_key">Whisper-sleutel instellen</string>
+    <string name="notice_no_speech">Niet verstaan</string>
+    <string name="notice_timeout">Niets gehoord</string>
+    <string name="notice_no_audio">Geen toegang tot de microfoon</string>
+    <string name="notice_no_key">Geen Groq-sleutel</string>
+    <string name="notice_unauthorized">Groq-sleutel geweigerd</string>
+    <string name="notice_rate_limited">Groq-limiet bereikt</string>
+    <string name="notice_server">Groq-fout %1$d</string>
+    <string name="notice_network">Groq niet bereikbaar</string>
+    <string name="option_press_mic">Op de microfoonknop van de app drukken als er geen veld focus heeft</string>
+    <string name="option_open_search">De zoekfunctie van de app openen en dicteren</string>
+    <string name="status_ready">Alles ingesteld</string>
+    <string name="status_needs_attention">Aandacht nodig</string>
+    <string name="status_repair_failed">De tv-instellingen konden niet worden gewijzigd</string>
+    <string name="check_permission">Microfoonmachtiging</string>
+    <string name="check_accessibility">Microfoonknop van de afstandsbediening (toegankelijkheidsservice)</string>
+    <string name="check_recognizer">Spraakinvoer in apps (HyperVoice is de herkenner)</string>
+    <string name="check_key">Whisper-sleutel (Groq)</string>
+    <string name="check_remote">Spraakafstandsbediening gevonden</string>
+    <string name="action_repair">Herstellen</string>
+    <string name="hint_no_repair">Om dit vanuit de app te herstellen, geeft u de machtiging WRITE_SECURE_SETTINGS één keer (zie de README).</string>
+    <string name="key_scan_caption">Scan met uw telefoon en voer de Whisper-sleutel (Groq) in</string>
+    <string name="key_no_network">Verbind de tv met uw thuisnetwerk om de Whisper-sleutel vanaf een telefoon in te voeren.</string>
+    <string name="settings_languages">Talen</string>
+    <string name="languages_title">Talen</string>
+    <string name="languages_hint">Whisper weet vooraf welke talen te verwachten. OK voegt een taal toe of verwijdert die.</string>
+    <string name="languages_defaults">Standaardinstellingen voor deze tv herstellen</string>
+    <string name="key_scan_caption_change">De sleutel is ingesteld. Scan met uw telefoon en voer de nieuwe Whisper-sleutel (Groq) in om hem te wijzigen</string>
+    <string name="update_available">Update %1$s beschikbaar</string>
+    <string name="update_install">Installeren</string>
+    <string name="update_downloading">Downloaden…</string>
+    <string name="update_installing">Doorgeven aan het installatieprogramma…</string>
+    <string name="update_failed">Update mislukt: %1$s</string>
+</resources>

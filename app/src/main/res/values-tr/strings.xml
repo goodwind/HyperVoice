@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Kumandadaki mikrofon düğmesi: söyledikleriniz odaktaki alana yazılır. Dikte için gereklidir.</string>
+    <string name="overlay_listening">Dinliyor…</string>
+    <string name="overlay_recognizing">Tanıyor…</string>
+    <string name="overlay_no_field">Giriş alanı yok: %1$s</string>
+    <string name="set_key">Whisper anahtarını ayarla</string>
+    <string name="notice_no_speech">Anlayamadım</string>
+    <string name="notice_timeout">Hiçbir şey duyulmadı</string>
+    <string name="notice_no_audio">Mikrofona erişim yok</string>
+    <string name="notice_no_key">Groq anahtarı yok</string>
+    <string name="notice_unauthorized">Groq anahtarı reddedildi</string>
+    <string name="notice_rate_limited">Groq sınırına ulaşıldı</string>
+    <string name="notice_server">Groq hatası %1$d</string>
+    <string name="notice_network">Groq’a ulaşılamıyor</string>
+    <string name="option_press_mic">Odakta alan yoksa uygulamanın mikrofon düğmesine bas</string>
+    <string name="option_open_search">Uygulamanın aramasını aç, sonra dikte et</string>
+    <string name="status_ready">Her şey hazır</string>
+    <string name="status_needs_attention">Dikkat gerekiyor</string>
+    <string name="status_repair_failed">TV ayarları değiştirilemedi</string>
+    <string name="check_permission">Mikrofon izni</string>
+    <string name="check_accessibility">Kumandanın mikrofon düğmesi (erişilebilirlik hizmeti)</string>
+    <string name="check_recognizer">Uygulamalarda sesle giriş (tanıyıcı HyperVoice)</string>
+    <string name="check_key">Whisper anahtarı (Groq)</string>
+    <string name="check_remote">Sesli kumanda bulundu</string>
+    <string name="action_repair">Düzelt</string>
+    <string name="hint_no_repair">Uygulamadan düzeltmek için ona bir kez WRITE_SECURE_SETTINGS iznini verin (README’ye bakın).</string>
+    <string name="key_scan_caption">Telefonla tarayın ve Whisper (Groq) anahtarını girin</string>
+    <string name="key_no_network">Whisper anahtarını telefondan girmek için TV’yi ev ağınıza bağlayın.</string>
+    <string name="settings_languages">Diller</string>
+    <string name="languages_title">Diller</string>
+    <string name="languages_hint">Whisper’a hangi dilleri bekleyeceği önceden söylenir. Tamam bir dil ekler veya kaldırır.</string>
+    <string name="languages_defaults">Bu TV için varsayılanlara dön</string>
+    <string name="key_scan_caption_change">Anahtar ayarlı. Değiştirmek için telefonla tarayın ve yeni Whisper (Groq) anahtarını girin</string>
+    <string name="update_available">%1$s güncellemesi mevcut</string>
+    <string name="update_install">Yükle</string>
+    <string name="update_downloading">İndiriliyor…</string>
+    <string name="update_installing">Yükleyiciye aktarılıyor…</string>
+    <string name="update_failed">Güncelleme başarısız: %1$s</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">遙控器上的麥克風鍵：您說的話會輸入到目前聚焦的輸入欄。聽寫功能需要它。</string>
+    <string name="overlay_listening">正在聆聽…</string>
+    <string name="overlay_recognizing">正在辨識…</string>
+    <string name="overlay_no_field">沒有輸入欄：%1$s</string>
+    <string name="set_key">設定 Whisper 金鑰</string>
+    <string name="notice_no_speech">沒聽清楚</string>
+    <string name="notice_timeout">什麼也沒聽到</string>
+    <string name="notice_no_audio">無法存取麥克風</string>
+    <string name="notice_no_key">沒有 Groq 金鑰</string>
+    <string name="notice_unauthorized">Groq 金鑰被拒絕</string>
+    <string name="notice_rate_limited">已達 Groq 額度上限</string>
+    <string name="notice_server">Groq 錯誤 %1$d</string>
+    <string name="notice_network">無法連線 Groq</string>
+    <string name="option_press_mic">沒有輸入欄時按下應用程式自己的麥克風按鈕</string>
+    <string name="option_open_search">開啟應用程式的搜尋，然後聽寫</string>
+    <string name="status_ready">一切就緒</string>
+    <string name="status_needs_attention">需要注意</string>
+    <string name="status_repair_failed">無法變更電視設定</string>
+    <string name="check_permission">麥克風權限</string>
+    <string name="check_accessibility">遙控器麥克風鍵（無障礙服務）</string>
+    <string name="check_recognizer">應用程式內語音輸入（HyperVoice 為辨識器）</string>
+    <string name="check_key">Whisper 金鑰（Groq）</string>
+    <string name="check_remote">已找到語音遙控器</string>
+    <string name="action_repair">修復</string>
+    <string name="hint_no_repair">若要從應用程式內修復，請一次性授予它 WRITE_SECURE_SETTINGS 權限（見 README）。</string>
+    <string name="key_scan_caption">用手機掃描並輸入 Whisper（Groq）金鑰</string>
+    <string name="key_no_network">請將電視連上家用網路，以便用手機輸入 Whisper 金鑰。</string>
+    <string name="settings_languages">語言</string>
+    <string name="languages_title">語言</string>
+    <string name="languages_hint">Whisper 會事先知道要辨識哪些語言。按「確定」新增或移除。</string>
+    <string name="languages_defaults">還原此電視的預設設定</string>
+    <string name="key_scan_caption_change">金鑰已設定。如需變更，請用手機掃描並輸入新的 Whisper（Groq）金鑰</string>
+    <string name="update_available">有可用更新 %1$s</string>
+    <string name="update_install">安裝</string>
+    <string name="update_downloading">正在下載…</string>
+    <string name="update_installing">正在交給安裝程式…</string>
+    <string name="update_failed">更新失敗：%1$s</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">리모컨의 마이크 버튼: 말한 내용이 포커스된 입력란에 입력됩니다. 받아쓰기에 필요합니다.</string>
+    <string name="overlay_listening">듣는 중…</string>
+    <string name="overlay_recognizing">인식 중…</string>
+    <string name="overlay_no_field">입력란 없음: %1$s</string>
+    <string name="set_key">Whisper 키 설정</string>
+    <string name="notice_no_speech">잘 못 알아들었어요</string>
+    <string name="notice_timeout">아무것도 들리지 않았어요</string>
+    <string name="notice_no_audio">마이크에 접근할 수 없음</string>
+    <string name="notice_no_key">Groq 키 없음</string>
+    <string name="notice_unauthorized">Groq 키가 거부됨</string>
+    <string name="notice_rate_limited">Groq 한도 도달</string>
+    <string name="notice_server">Groq 오류 %1$d</string>
+    <string name="notice_network">Groq에 연결할 수 없음</string>
+    <string name="option_press_mic">입력란이 없을 때 앱의 마이크 버튼 누르기</string>
+    <string name="option_open_search">앱의 검색을 열고 받아쓰기</string>
+    <string name="status_ready">모두 준비됨</string>
+    <string name="status_needs_attention">확인 필요</string>
+    <string name="status_repair_failed">TV 설정을 변경할 수 없음</string>
+    <string name="check_permission">마이크 권한</string>
+    <string name="check_accessibility">리모컨 마이크 버튼(접근성 서비스)</string>
+    <string name="check_recognizer">앱 내 음성 입력(HyperVoice가 인식기)</string>
+    <string name="check_key">Whisper 키(Groq)</string>
+    <string name="check_remote">음성 리모컨을 찾았습니다</string>
+    <string name="action_repair">수정</string>
+    <string name="hint_no_repair">앱에서 수정하려면 WRITE_SECURE_SETTINGS 권한을 한 번 부여하세요(README 참조).</string>
+    <string name="key_scan_caption">휴대폰으로 스캔하고 Whisper(Groq) 키를 입력하세요</string>
+    <string name="key_no_network">휴대폰에서 Whisper 키를 입력하려면 TV를 가정용 네트워크에 연결하세요.</string>
+    <string name="settings_languages">언어</string>
+    <string name="languages_title">언어</string>
+    <string name="languages_hint">Whisper에 인식할 언어를 미리 알려 줍니다. 확인을 누르면 추가하거나 제거합니다.</string>
+    <string name="languages_defaults">이 TV의 기본값으로 되돌리기</string>
+    <string name="key_scan_caption_change">키가 설정되었습니다. 변경하려면 휴대폰으로 스캔하고 새 Whisper(Groq) 키를 입력하세요</string>
+    <string name="update_available">업데이트 %1$s 사용 가능</string>
+    <string name="update_install">설치</string>
+    <string name="update_downloading">다운로드 중…</string>
+    <string name="update_installing">설치 프로그램에 전달 중…</string>
+    <string name="update_failed">업데이트 실패: %1$s</string>
+</resources>

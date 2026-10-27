@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Die Mikrofontaste der Fernbedienung: Was Sie sagen, wird in das fokussierte Feld getippt. Für das Diktieren nötig.</string>
+    <string name="overlay_listening">Hört zu…</string>
+    <string name="overlay_recognizing">Erkennt…</string>
+    <string name="overlay_no_field">Kein Eingabefeld: %1$s</string>
+    <string name="set_key">Whisper-Schlüssel einrichten</string>
+    <string name="notice_no_speech">Nicht verstanden</string>
+    <string name="notice_timeout">Nichts gehört</string>
+    <string name="notice_no_audio">Kein Zugriff auf das Mikrofon</string>
+    <string name="notice_no_key">Kein Groq-Schlüssel</string>
+    <string name="notice_unauthorized">Groq-Schlüssel abgelehnt</string>
+    <string name="notice_rate_limited">Groq-Limit erreicht</string>
+    <string name="notice_server">Groq-Fehler %1$d</string>
+    <string name="notice_network">Groq nicht erreichbar</string>
+    <string name="option_press_mic">Mikrofontaste der App drücken, wenn kein Feld fokussiert ist</string>
+    <string name="option_open_search">Suche der App öffnen und diktieren</string>
+    <string name="status_ready">Alles eingerichtet</string>
+    <string name="status_needs_attention">Aufmerksamkeit nötig</string>
+    <string name="status_repair_failed">Die Einstellungen des Fernsehers ließen sich nicht ändern</string>
+    <string name="check_permission">Mikrofonberechtigung</string>
+    <string name="check_accessibility">Mikrofontaste der Fernbedienung (Bedienungshilfe)</string>
+    <string name="check_recognizer">Spracheingabe in Apps (HyperVoice ist die Erkennung)</string>
+    <string name="check_key">Whisper-Schlüssel (Groq)</string>
+    <string name="check_remote">Sprach-Fernbedienung gefunden</string>
+    <string name="action_repair">Beheben</string>
+    <string name="hint_no_repair">Um dies in der App zu beheben, erteilen Sie ihr einmalig die Berechtigung WRITE_SECURE_SETTINGS (siehe README).</string>
+    <string name="key_scan_caption">Mit dem Smartphone scannen und den Whisper-Schlüssel (Groq) eingeben</string>
+    <string name="key_no_network">Verbinden Sie den Fernseher mit dem Heimnetz, um den Whisper-Schlüssel vom Smartphone einzugeben.</string>
+    <string name="settings_languages">Sprachen</string>
+    <string name="languages_title">Sprachen</string>
+    <string name="languages_hint">Whisper erfährt vorab, welche Sprachen zu erwarten sind. OK fügt eine hinzu oder entfernt sie.</string>
+    <string name="languages_defaults">Standardwerte für diesen Fernseher wiederherstellen</string>
+    <string name="key_scan_caption_change">Der Schlüssel ist gesetzt. Zum Ändern mit dem Smartphone scannen und den neuen Whisper-Schlüssel (Groq) eingeben</string>
+    <string name="update_available">Update %1$s verfügbar</string>
+    <string name="update_install">Installieren</string>
+    <string name="update_downloading">Wird geladen…</string>
+    <string name="update_installing">Übergabe an den Installer…</string>
+    <string name="update_failed">Update fehlgeschlagen: %1$s</string>
+</resources>
