@@ -1,3 +1,4 @@
+import java.util.Properties
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -26,9 +27,35 @@ android {
 
     buildFeatures { buildConfig = true }
 
+    lint {
+        // Not for Google Play: it is installed on a TV's own Android 11, where targetSdk 30 is what was tested.
+        disable += "ExpiredTargetSdkVersion"
+    }
+
+    // Releases are signed with a key that lives outside version control, in local/signing.properties
+    // (storeFile, storePassword, keyAlias, keyPassword). Android only installs an update signed with the
+    // key of the copy it replaces, so that key must be kept for good. Without it (a fresh checkout) the
+    // build falls back to the machine's debug key: it installs, but cannot update a release.
+    val signingProps = rootProject.file("local/signing.properties")
+    signingConfigs {
+        if (signingProps.exists()) {
+            val p = Properties().apply { signingProps.inputStream().use { load(it) } }
+            create("release") {
+                storeFile = file(p.getProperty("storeFile"))
+                storePassword = p.getProperty("storePassword")
+                keyAlias = p.getProperty("keyAlias")
+                keyPassword = p.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
-        // The key of the owner's machine is for debug builds only; a release never carries one.
-        release { buildConfigField("String", "GROQ_KEY", "\"\"") }
+        release {
+            // The key of the owner's machine is for debug builds only; a release never carries one.
+            buildConfigField("String", "GROQ_KEY", "\"\"")
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
+        }
     }
 
     compileOptions {
