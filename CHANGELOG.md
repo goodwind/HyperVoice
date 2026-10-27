@@ -15,7 +15,7 @@ Pre-release: not published yet, built from source.
 - An accessibility service that takes the voice remote's microphone button (an unmapped key, scan code 63):
   hold it, speak, and the text is typed into the focused field of any app, at the cursor.
 - With no field in focus, the service presses the app's own microphone button (Leanback's
-  `lb_search_bar_speech_orb`, or a button whose description names voice input). Not yet tested on a TV.
+  `lb_search_bar_speech_orb`, or a button whose description names voice input).
 - Whisper is primed with the languages the person chose: English and the language of the TV by default.
 - A note over the screen for what is going on (*Listening…*, *Recognizing…*, or the failure), and the
   settings opened at once if there is no key.

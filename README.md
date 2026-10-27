@@ -33,7 +33,7 @@ HyperVoice listens to it.
 - **Dictation.** Hold the remote's microphone button, speak, let go: the text is typed into the field that
   has focus, in any app, at the cursor.
 - **No field in focus?** It presses the app's own microphone button for you (found by its accessibility id or
-  description), so the app handles the text its own way, a search box for one. *Not yet tested on a TV.*
+  description), so the app handles the text its own way, a search box for one.
 - **Several languages in one phrase.** Whisper is told which languages to expect (English and the language of
   the TV by default; you choose in the app), so "включи клип Imagine Dragons" comes out as written.
 - A small note over the screen says what is going on: *Listening…*, *Recognizing…*, or what went wrong.
