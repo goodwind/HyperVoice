@@ -1,0 +1,51 @@
+name: Bug report
+description: Something does not work on your TV
+labels: [bug]
+body:
+  - type: input
+    id: tv
+    attributes:
+      label: TV model and firmware
+      description: "`adb shell getprop ro.product.model` and `ro.build.version.release`"
+      placeholder: "Xiaomi MiTV-MFTR0, HyperOS, Android 11"
+    validations:
+      required: true
+  - type: input
+    id: remote
+    attributes:
+      label: The remote
+      placeholder: "Xiaomi Bluetooth voice remote"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: HyperVoice version or commit
+      placeholder: "0.1.0, or the commit you built"
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where it went wrong
+      options:
+        - Dictation into a field (the remote's button)
+        - An app's own microphone button
+        - The app pressing a microphone button for me
+        - Settings
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead. A photo of the screen helps.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: The app's log
+      description: "`adb logcat -d -s HyperVoice` after you tried. It names the steps and the outcome, not the text you said or the key."
+      render: shell

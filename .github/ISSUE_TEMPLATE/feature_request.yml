@@ -1,0 +1,16 @@
+name: Feature request
+description: An idea, or a TV or remote it should work with
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like
+      description: What you want to do with your voice and what stops you now.
+    validations:
+      required: true
+  - type: input
+    id: tv
+    attributes:
+      label: TV and remote, if it is about one
+      placeholder: "Xiaomi MiTV-MFTR0 with its Bluetooth voice remote"
