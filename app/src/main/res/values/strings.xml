@@ -31,8 +31,6 @@
     <string name="hint_no_repair">To fix this from the app, give it the WRITE_SECURE_SETTINGS permission once (see the README).</string>
     <string name="key_scan_caption">Scan with your phone and enter the Whisper (Groq) key</string>
     <string name="key_no_network">Connect the TV to your home network to enter the Whisper key from a phone.</string>
-    <string name="state_on">On</string>
-    <string name="state_off">Off</string>
     <string name="settings_languages">Languages</string>
     <string name="languages_title">Languages</string>
     <string name="languages_hint">Whisper is told which languages to expect. OK adds or removes one.</string>

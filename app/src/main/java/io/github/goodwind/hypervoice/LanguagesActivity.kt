@@ -30,7 +30,7 @@ class LanguagesActivity : Activity() {
             settings.languages = settings.defaultLanguages(); refresh()
         })
         for (l in Languages.all) {
-            val row = FocusRow(this, "${l.name}  (${l.english})", null) { toggle(l.code) }
+            val row = FocusRow(this, "${l.name}  (${l.english})", null, slider = true) { toggle(l.code) }
             rows[l.code] = row
             list.addView(row)
         }
@@ -53,6 +53,6 @@ class LanguagesActivity : Activity() {
 
     private fun refresh() {
         val chosen = settings.languages
-        for ((code, row) in rows) row.setState(if (code in chosen) "✓" else "")
+        for ((code, row) in rows) row.setOn(code in chosen)
     }
 }

@@ -1,6 +1,7 @@
 package io.github.goodwind.hypervoice
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
@@ -21,6 +22,26 @@ object Ink {
     const val RED = 0xFFFF453A.toInt()
     const val ORANGE = 0xFFFF9F0A.toInt()
     const val GREEN = 0xFF32D74B.toInt()
+    const val ACCENT = 0xFF0A84FF.toInt()
+    const val OFF_TRACK = 0xFF7C7C82.toInt()
+}
+
+/** The slider of the app's icon: a pill with a white knob, blue when on. */
+class Slider(context: Context) : View(context) {
+    var on = false
+        set(value) { field = value; invalidate() }
+    private val paint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)
+
+    override fun onMeasure(w: Int, h: Int) = setMeasuredDimension(context.dp(46), context.dp(28))
+
+    override fun onDraw(canvas: android.graphics.Canvas) {
+        val r = height / 2f
+        paint.color = if (on) Ink.ACCENT else Ink.OFF_TRACK
+        canvas.drawRoundRect(0f, 0f, width.toFloat(), height.toFloat(), r, r, paint)
+        paint.color = Color.WHITE
+        val cx = if (on) width - r else r
+        canvas.drawCircle(cx, r, r - context.dp(2), paint)
+    }
 }
 
 fun Context.dp(v: Int): Int = (v * resources.displayMetrics.density + 0.5f).toInt()
@@ -38,9 +59,10 @@ fun Context.label(text: CharSequence, size: Float, color: Int = Ink.LABEL, bold:
 }
 
 /** A row the remote can focus and press: a name, its state (or a chevron for a link) and a near-white plate while focused. */
-class FocusRow(context: Context, name: String, state: String?, onClick: () -> Unit) : LinearLayout(context) {
+class FocusRow(context: Context, name: String, state: String?, private val slider: Boolean = false, onClick: () -> Unit) : LinearLayout(context) {
     private val name = context.label(name, 16f)
     private val state = context.label(state.orEmpty(), 16f, Ink.SECONDARY)
+    private val knob = Slider(context)
 
     init {
         orientation = HORIZONTAL
@@ -50,13 +72,16 @@ class FocusRow(context: Context, name: String, state: String?, onClick: () -> Un
         minimumHeight = context.dp(48)
         setPadding(context.dp(16), context.dp(6), context.dp(16), context.dp(6))
         addView(this.name, LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-        addView(this.state)
+        addView(if (slider) knob else this.state)
         setOnClickListener { onClick() }
         onFocusChangeListener = View.OnFocusChangeListener { _, _ -> paint() }
         paint()
     }
 
     fun setState(text: String) { state.text = text }
+
+    /** For a row made with a slider. */
+    fun setOn(on: Boolean) { knob.on = on }
 
     private fun paint() {
         background = if (hasFocus()) context.plate(Ink.FOCUS, 12) else null

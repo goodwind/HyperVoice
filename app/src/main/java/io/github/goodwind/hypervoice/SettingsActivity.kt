@@ -44,10 +44,10 @@ class SettingsActivity : Activity() {
             background = plate(Ink.PANEL, 16)
             setPadding(dp(24), dp(20), dp(24), dp(20))
         }
-        pressMic = FocusRow(this, getString(R.string.option_press_mic), null) {
+        pressMic = FocusRow(this, getString(R.string.option_press_mic), null, slider = true) {
             settings.pressMicButton = !settings.pressMicButton; refreshRows()
         }
-        openSearch = FocusRow(this, getString(R.string.option_open_search), null) {
+        openSearch = FocusRow(this, getString(R.string.option_open_search), null, slider = true) {
             settings.openSearchButton = !settings.openSearchButton; refreshRows()
         }
         languages = FocusRow(this, getString(R.string.settings_languages), null) {
@@ -124,10 +124,8 @@ class SettingsActivity : Activity() {
     }
 
     private fun refreshRows() {
-        val on = getString(R.string.state_on)
-        val off = getString(R.string.state_off)
-        pressMic.setState(if (settings.pressMicButton) on else off)
-        openSearch.setState(if (settings.openSearchButton) on else off)
+        pressMic.setOn(settings.pressMicButton)
+        openSearch.setOn(settings.openSearchButton)
         languages.setState(Languages.all.filter { it.code in settings.languages }.joinToString(", ") { it.name })
     }
 

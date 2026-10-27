@@ -30,8 +30,6 @@
     <string name="hint_no_repair">Чтобы чинить из приложения, один раз выдайте ему разрешение WRITE_SECURE_SETTINGS (см. README).</string>
     <string name="key_scan_caption">Отсканируйте телефоном и введите ключ Whisper (Groq)</string>
     <string name="key_no_network">Подключите ТВ к домашней сети, чтобы ввести ключ Whisper с телефона.</string>
-    <string name="state_on">Вкл</string>
-    <string name="state_off">Выкл</string>
     <string name="settings_languages">Языки</string>
     <string name="languages_title">Языки</string>
     <string name="languages_hint">Whisper заранее знает, какие языки ждать. OK добавляет или убирает язык.</string>
