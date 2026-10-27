@@ -33,7 +33,8 @@ class SettingsActivity : Activity() {
     private lateinit var pressMic: FocusRow
     private lateinit var openSearch: FocusRow
     private lateinit var languages: FocusRow
-    private lateinit var update: FocusRow
+    private var updateLine: String? = null
+    private var updateReady = false
     private var offered: Update? = null
     private var updating = false
     private var checked = false
@@ -63,14 +64,12 @@ class SettingsActivity : Activity() {
         languages = FocusRow(this, getString(R.string.settings_languages), null) {
             startActivity(Intent(this, LanguagesActivity::class.java))
         }
-        update = FocusRow(this, "", null) { installUpdate() }.apply { visibility = View.GONE }
         val rows = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(0, dp(14), 0, 0)
             addView(pressMic)
             addView(openSearch)
             addView(languages)
-            addView(update)
         }
         val column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -112,10 +111,14 @@ class SettingsActivity : Activity() {
         }.start()
     }
 
+    /** What the header says about an update: [state] is the action it offers (null while it is being got). */
     private fun showUpdate(name: String, state: String?) {
-        update.visibility = View.VISIBLE
-        update.setName(name)
-        update.setState(state.orEmpty())
+        updateLine = if (state != null) "$name · $state" else name
+        updateReady = state != null
+        refresh()
+        header.post {
+            if (currentFocus !is FocusRow && currentFocus !is FocusButton) (header.findViewWithTag<View>(UPDATE) ?: header.findViewWithTag<View>(REPAIR) ?: pressMic).requestFocus()
+        }
     }
 
     private fun installUpdate() {
@@ -214,6 +217,11 @@ class SettingsActivity : Activity() {
         } else if (!ready && !snapshot.canRepair && (!snapshot.accessibilityOn || !snapshot.recognizerIsOurs)) {
             left.addView(label(getString(R.string.hint_no_repair), 13f, Ink.SECONDARY).apply { setPadding(0, dp(12), 0, 0) })
         }
+        updateLine?.let { line ->
+            val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(14) }
+            if (updateReady) left.addView(FocusButton(this, line) { installUpdate() }.apply { tag = UPDATE }, params)
+            else left.addView(label(line, 16f, Ink.ACCENT, bold = true), params)
+        }
         header.addView(left, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
 
         header.addView(keyPanel())
@@ -260,6 +268,7 @@ class SettingsActivity : Activity() {
 
     companion object {
         private const val REPAIR = "repair"
+        private const val UPDATE = "update"
         private const val REPO = "goodwind/HyperVoice"
         const val EXTRA_NO_KEY = "no_key"
         const val EXTRA_KEY = "groq_key"
