@@ -15,15 +15,26 @@
     <string name="notice_rate_limited">Лимит Groq исчерпан</string>
     <string name="notice_server">Ошибка Groq %1$d</string>
     <string name="notice_network">Нет связи с Groq</string>
-
-    <string name="settings_key_set">Ключ Whisper (Groq): задан</string>
-    <string name="settings_key_missing">Ключ Whisper (Groq): НЕ ЗАДАН</string>
-    <string name="settings_a11y_on">Кнопка микрофона на пульте (служба доступности): включена</string>
-    <string name="settings_a11y_off">Кнопка микрофона на пульте (служба доступности): выключена</string>
-    <string name="settings_recognizer_ours">Голосовой ввод в приложениях (распознаватель): HyperVoice</string>
-    <string name="settings_recognizer_other">Голосовой ввод в приложениях (распознаватель): другой</string>
-    <string name="settings_languages">Языки: %1$s</string>
-    <string name="settings_languages_header">Параметры и языки (OK: включить или выключить):</string>
     <string name="option_press_mic">Нажимать кнопку микрофона приложения, если нет поля ввода</string>
     <string name="option_open_search">Открывать поиск приложения и диктовать</string>
+
+    <string name="status_ready">Всё настроено</string>
+    <string name="status_needs_attention">Нужно внимание</string>
+    <string name="status_repair_failed">Не удалось изменить настройки ТВ</string>
+    <string name="check_permission">Доступ к микрофону</string>
+    <string name="check_accessibility">Кнопка микрофона на пульте (служба доступности)</string>
+    <string name="check_recognizer">Голосовой ввод в приложениях (распознаватель HyperVoice)</string>
+    <string name="check_key">Ключ Whisper (Groq)</string>
+    <string name="check_remote">Голосовой пульт найден</string>
+    <string name="action_repair">Починить</string>
+    <string name="hint_no_repair">Чтобы чинить из приложения, один раз выдайте ему разрешение WRITE_SECURE_SETTINGS (см. README).</string>
+    <string name="key_scan_caption">Отсканируйте телефоном и введите ключ Whisper (Groq)</string>
+    <string name="key_no_network">Подключите ТВ к домашней сети, чтобы ввести ключ Whisper с телефона.</string>
+    <string name="state_on">Вкл</string>
+    <string name="state_off">Выкл</string>
+    <string name="settings_languages">Языки</string>
+    <string name="languages_title">Языки</string>
+    <string name="languages_hint">Whisper заранее знает, какие языки ждать. OK добавляет или убирает язык.</string>
+    <string name="languages_defaults">Вернуть настройки по умолчанию для этого ТВ</string>
+    <string name="key_scan_caption_change">Ключ задан. Чтобы заменить, отсканируйте телефоном и введите новый ключ Whisper (Groq)</string>
 </resources>

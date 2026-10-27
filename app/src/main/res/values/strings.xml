@@ -16,15 +16,26 @@
     <string name="notice_rate_limited">Groq limit reached</string>
     <string name="notice_server">Groq error %1$d</string>
     <string name="notice_network">Can’t reach Groq</string>
-
-    <string name="settings_key_set">Whisper key (Groq): set</string>
-    <string name="settings_key_missing">Whisper key (Groq): NOT SET</string>
-    <string name="settings_a11y_on">Remote’s microphone button (accessibility service): on</string>
-    <string name="settings_a11y_off">Remote’s microphone button (accessibility service): off</string>
-    <string name="settings_recognizer_ours">Voice input in apps (recognizer): HyperVoice</string>
-    <string name="settings_recognizer_other">Voice input in apps (recognizer): another one</string>
-    <string name="settings_languages">Languages: %1$s</string>
-    <string name="settings_languages_header">Options and languages (OK toggles):</string>
     <string name="option_press_mic">Press an app’s microphone button when no field is in focus</string>
     <string name="option_open_search">Open an app’s search, then dictate</string>
+
+    <string name="status_ready">All set</string>
+    <string name="status_needs_attention">Needs attention</string>
+    <string name="status_repair_failed">Could not change the TV’s settings</string>
+    <string name="check_permission">Microphone permission</string>
+    <string name="check_accessibility">Remote’s microphone button (accessibility service)</string>
+    <string name="check_recognizer">Voice input in apps (HyperVoice is the recognizer)</string>
+    <string name="check_key">Whisper key (Groq)</string>
+    <string name="check_remote">Voice remote found</string>
+    <string name="action_repair">Fix</string>
+    <string name="hint_no_repair">To fix this from the app, give it the WRITE_SECURE_SETTINGS permission once (see the README).</string>
+    <string name="key_scan_caption">Scan with your phone and enter the Whisper (Groq) key</string>
+    <string name="key_no_network">Connect the TV to your home network to enter the Whisper key from a phone.</string>
+    <string name="state_on">On</string>
+    <string name="state_off">Off</string>
+    <string name="settings_languages">Languages</string>
+    <string name="languages_title">Languages</string>
+    <string name="languages_hint">Whisper is told which languages to expect. OK adds or removes one.</string>
+    <string name="languages_defaults">Reset to the defaults for this TV</string>
+    <string name="key_scan_caption_change">The key is set. To change it, scan with your phone and enter the new Whisper (Groq) key</string>
 </resources>

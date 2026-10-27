@@ -7,6 +7,7 @@ import io.github.goodwind.hypervoice.core.Transcriber
 import io.github.goodwind.hypervoice.core.WhisperClient
 import io.github.goodwind.hypervoice.shared.HttpTransport
 import java.util.Locale
+import java.util.TimeZone
 
 /** What the person has chosen: the Groq key and the languages Whisper is primed with. */
 class Settings(context: Context) : SetupWeb.Store {
@@ -21,7 +22,7 @@ class Settings(context: Context) : SetupWeb.Store {
 
     /** English and the language of the device until the person says otherwise. */
     override var languages: List<String>
-        get() = Languages.parse(prefs.getString(LANGUAGES, null)).ifEmpty { Languages.defaults(Locale.getDefault().language) }
+        get() = Languages.parse(prefs.getString(LANGUAGES, null)).ifEmpty { defaultLanguages() }
         set(value) = prefs.edit().putString(LANGUAGES, Languages.serialize(value)).apply()
 
     /** With no field to type into, press an app's own microphone button if the screen has one. On: it is what people like. */
@@ -33,6 +34,10 @@ class Settings(context: Context) : SetupWeb.Store {
     override var openSearchButton: Boolean
         get() = prefs.getBoolean(OPEN_SEARCH, false)
         set(value) = prefs.edit().putBoolean(OPEN_SEARCH, value).apply()
+
+    /** English, the language of the TV and those of its country and time zone. */
+    fun defaultLanguages(): List<String> =
+        Languages.defaults(Locale.getDefault().language, Locale.getDefault().country, TimeZone.getDefault().id)
 
     fun transcriber(): Transcriber = WhisperClient(HttpTransport(), key, MODEL, Languages.hint(languages))
 

@@ -7,8 +7,9 @@ plugins {
 
 // The Groq key for the proof of concept: read from the owner's machine at build time and put in the APK,
 // never in the repository. A build without it still works; the service then answers "no key".
+// -PnoKey builds without it, to see the app as a person without a key does.
 val groqKey: String = File(System.getProperty("user.home"), ".cache/hypervoice/groq.key")
-    .takeIf { it.isFile }?.readText()?.trim().orEmpty()
+    .takeIf { it.isFile && !project.hasProperty("noKey") }?.readText()?.trim().orEmpty()
 
 android {
     namespace = "io.github.goodwind.hypervoice"
@@ -37,6 +38,7 @@ kotlin {
 
 dependencies {
     implementation(project(":shared"))
+    implementation("com.google.zxing:core:3.5.3")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20240303")
 }

@@ -40,5 +40,12 @@ class RemoteMic(private val context: Context) : AudioSource {
         r.release()
     }
 
-    companion object { const val RATE = 16_000 }
+    companion object {
+        const val RATE = 16_000
+
+        /** Whether the remote's microphone is listed as an input now (it is not while the remote sleeps). */
+        fun present(context: Context): Boolean =
+            (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager).getDevices(AudioManager.GET_DEVICES_INPUTS)
+                .any { it.type == AudioDeviceInfo.TYPE_WIRED_HEADSET && !it.address.isNullOrEmpty() }
+    }
 }

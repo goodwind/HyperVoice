@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The screens draw their own header, on the same near-black as the other Hyper apps. -->
+    <style name="Theme.HyperVoice" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>
