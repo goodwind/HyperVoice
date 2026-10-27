@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Same drawing as docs/img/icon.png (tools/make-icons.py): a microphone with sound waves. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:pathData="M22,0H78A22,22 0 0 1 100,22V78A22,22 0 0 1 78,100H22A22,22 0 0 1 0,78V22A22,22 0 0 1 22,0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="0" android:startY="0" android:endX="100" android:endY="100">
+                <item android:offset="0" android:color="#FF0F172A" />
+                <item android:offset="1" android:color="#FF4338CA" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:strokeColor="#FF22D3EE" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M74.82,18.61A31.5,31.5 0 0 1 74.82,57.39" />
+    <path android:strokeColor="#FF22D3EE" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M25.18,57.39A31.5,31.5 0 0 1 25.18,18.61" />
+    <path android:strokeColor="#8C22D3EE" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M81.13,13.68A39.5,39.5 0 0 1 81.13,62.32" />
+    <path android:strokeColor="#8C22D3EE" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M18.87,62.32A39.5,39.5 0 0 1 18.87,13.68" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M50,14H50A12,12 0 0 1 62,26V42A12,12 0 0 1 50,54H50A12,12 0 0 1 38,42V26A12,12 0 0 1 50,14Z" />
+    <path android:strokeColor="#FF4338CA" android:strokeWidth="2.6" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M43.5,24H56.5" />
+    <path android:strokeColor="#FF4338CA" android:strokeWidth="2.6" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M43.5,31H56.5" />
+    <path android:strokeColor="#FF4338CA" android:strokeWidth="2.6" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M43.5,38H56.5" />
+    <path android:strokeColor="#FFFFFFFF" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M29,40A21,21 0 0 0 71,40" />
+    <path android:strokeColor="#FFFFFFFF" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M50,61V76" />
+    <path android:strokeColor="#FFFFFFFF" android:strokeWidth="4.4" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M38,78H62" />
+</vector>

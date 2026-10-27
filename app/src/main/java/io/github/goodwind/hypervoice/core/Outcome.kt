@@ -22,17 +22,4 @@ sealed interface Outcome {
         RateLimited, is Server -> 4 // ERROR_SERVER
         is Network -> 2 // ERROR_NETWORK
     }
-
-    /** One short sentence for the person at the TV. */
-    fun message(): String = when (this) {
-        is Text -> text
-        NoSpeech -> "Не расслышал"
-        Timeout -> "Не услышал"
-        NoAudio -> "Нет доступа к микрофону"
-        NoKey -> "Нет ключа Groq"
-        Unauthorized -> "Ключ Groq не принят"
-        RateLimited -> "Лимит Groq исчерпан"
-        is Server -> "Ошибка Groq $code"
-        is Network -> "Нет связи с Groq"
-    }
 }

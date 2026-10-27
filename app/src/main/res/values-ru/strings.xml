@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_description">Кнопка микрофона на пульте: что вы скажете, будет напечатано в поле ввода. Нужна для диктовки.</string>
+
+    <string name="overlay_listening">Слушаю…</string>
+    <string name="overlay_recognizing">Распознаю…</string>
+    <string name="overlay_no_field">Нет поля ввода (текст в буфере): %1$s</string>
+    <string name="set_key">Настройте ключ для Whisper</string>
+
+    <string name="notice_no_speech">Не расслышал</string>
+    <string name="notice_timeout">Не услышал</string>
+    <string name="notice_no_audio">Нет доступа к микрофону</string>
+    <string name="notice_no_key">Нет ключа Groq</string>
+    <string name="notice_unauthorized">Ключ Groq не принят</string>
+    <string name="notice_rate_limited">Лимит Groq исчерпан</string>
+    <string name="notice_server">Ошибка Groq %1$d</string>
+    <string name="notice_network">Нет связи с Groq</string>
+
+    <string name="settings_key_set">Ключ Whisper (Groq): задан</string>
+    <string name="settings_key_missing">Ключ Whisper (Groq): НЕ ЗАДАН</string>
+    <string name="settings_a11y_on">Кнопка микрофона на пульте (служба доступности): включена</string>
+    <string name="settings_a11y_off">Кнопка микрофона на пульте (служба доступности): выключена</string>
+    <string name="settings_recognizer_ours">Голосовой ввод в приложениях (распознаватель): HyperVoice</string>
+    <string name="settings_recognizer_other">Голосовой ввод в приложениях (распознаватель): другой</string>
+    <string name="settings_languages">Языки: %1$s</string>
+    <string name="settings_languages_header">Языки, которые услышит Whisper (OK: включить или выключить):</string>
+</resources>

@@ -19,15 +19,4 @@ class OutcomeTest {
     @Test fun `a transcript is not an error`() {
         assertNull(Outcome.Text("hi").recognizerError())
     }
-
-    @Test fun `a short sentence for the person to read on the screen`() {
-        assertEquals("Нет ключа Groq", Outcome.NoKey.message())
-        assertEquals("Ключ Groq не принят", Outcome.Unauthorized.message())
-        assertEquals("Не расслышал", Outcome.NoSpeech.message())
-        assertEquals("Нет связи с Groq", Outcome.Network("x").message())
-        assertEquals("Лимит Groq исчерпан", Outcome.RateLimited.message())
-        assertEquals("Ошибка Groq 500", Outcome.Server(500).message())
-        assertEquals("Не услышал", Outcome.Timeout.message())
-        assertEquals("Нет доступа к микрофону", Outcome.NoAudio.message())
-    }
 }

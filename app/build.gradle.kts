@@ -16,10 +16,10 @@ android {
 
     defaultConfig {
         applicationId = "io.github.goodwind.hypervoice"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 30
         versionCode = 1
-        versionName = "0.1"
+        versionName = "0.1.0"
         buildConfigField("String", "GROQ_KEY", "\"$groqKey\"")
     }
 

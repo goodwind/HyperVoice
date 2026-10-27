@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HyperVoice</string>
-    <string name="a11y_description">Кнопка микрофона на пульте: что вы скажете, будет напечатано в поле ввода. Нужна для диктовки.</string>
+    <string name="a11y_description">The microphone button on the remote: what you say is typed into the focused field. Needed for dictation.</string>
+
+    <string name="overlay_listening">Listening…</string>
+    <string name="overlay_recognizing">Recognizing…</string>
+    <string name="overlay_no_field">No input field (text copied): %1$s</string>
+    <string name="set_key">Set up the Whisper key</string>
+
+    <string name="notice_no_speech">Didn’t catch that</string>
+    <string name="notice_timeout">Didn’t hear anything</string>
+    <string name="notice_no_audio">No access to the microphone</string>
+    <string name="notice_no_key">No Groq key</string>
+    <string name="notice_unauthorized">Groq key rejected</string>
+    <string name="notice_rate_limited">Groq limit reached</string>
+    <string name="notice_server">Groq error %1$d</string>
+    <string name="notice_network">Can’t reach Groq</string>
+
+    <string name="settings_key_set">Whisper key (Groq): set</string>
+    <string name="settings_key_missing">Whisper key (Groq): NOT SET</string>
+    <string name="settings_a11y_on">Remote’s microphone button (accessibility service): on</string>
+    <string name="settings_a11y_off">Remote’s microphone button (accessibility service): off</string>
+    <string name="settings_recognizer_ours">Voice input in apps (recognizer): HyperVoice</string>
+    <string name="settings_recognizer_other">Voice input in apps (recognizer): another one</string>
+    <string name="settings_languages">Languages: %1$s</string>
+    <string name="settings_languages_header">Languages Whisper will hear (OK toggles):</string>
 </resources>

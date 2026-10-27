@@ -49,7 +49,7 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
     private fun keyDown() {
         if (Hub.recognition != null) return // an app is listening: the audio is going to it
         if (!Settings(this).hasKey) {
-            overlay.show("Настройте ключ для Whisper", 3000)
+            overlay.show(getString(R.string.set_key), 3000)
             Hub.openSettingsForKey(this)
             return
         }
@@ -64,12 +64,12 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
             }
         }
         dictation?.cancel()
-        overlay.show("Слушаю…")
+        overlay.show(getString(R.string.overlay_listening))
         val mine = Hub.session(this, object : VoiceSession.Listener {
             override fun onReady() = Unit
             override fun onSpeechStarted() = Unit
             override fun onLevel(rms: Double) = Unit
-            override fun onSpeechEnded() { main.post { overlay.show("Распознаю…") } }
+            override fun onSpeechEnded() { main.post { overlay.show(getString(R.string.overlay_recognizing)) } }
             override fun onResult(outcome: Outcome) { main.post { typed(outcome) } }
         })
         dictation = mine
@@ -110,7 +110,7 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
         dictation = null
         Log.i(TAG, "dictation result: ${if (outcome is Outcome.Text) "text, ${outcome.text.length} characters" else outcome}")
         if (outcome !is Outcome.Text) {
-            overlay.show(outcome.message(), 2500)
+            overlay.show(outcome.notice(this), 2500)
             if (outcome == Outcome.NoKey || outcome == Outcome.Unauthorized) Hub.openSettingsForKey(this)
             return
         }
@@ -119,7 +119,7 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
         Log.i(TAG, "focused input: ${field?.className}, editable ${field?.isEditable}")
         if (field == null || !field.isEditable) {
             (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("HyperVoice", text))
-            overlay.show("Нет поля ввода (текст в буфере): $text", 3500)
+            overlay.show(getString(R.string.overlay_no_field, text), 3500)
             return
         }
         val hint = Build.VERSION.SDK_INT >= 26 && field.isShowingHintText
