@@ -1,9 +1,6 @@
 package io.github.goodwind.hypervoice
 
 import android.accessibilityservice.AccessibilityService
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -13,7 +10,9 @@ import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import io.github.goodwind.hypervoice.core.Dictation
+import io.github.goodwind.hypervoice.core.KeyPlan
 import io.github.goodwind.hypervoice.core.MicButton
+import io.github.goodwind.hypervoice.core.SearchButton
 import io.github.goodwind.hypervoice.core.Outcome
 import io.github.goodwind.hypervoice.core.TextInsertion
 import io.github.goodwind.hypervoice.core.VoiceSession
@@ -27,6 +26,7 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
     private val main = Handler(Looper.getMainLooper())
     private lateinit var overlay: Overlay
     private var dictation: VoiceSession? = null
+    private var keyHeld = false
 
     override fun onServiceConnected() {
         overlay = Overlay(this)
@@ -47,22 +47,46 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
     }
 
     private fun keyDown() {
-        if (Hub.recognition != null) return // an app is listening: the audio is going to it
-        if (!Settings(this).hasKey) {
-            overlay.show(getString(R.string.set_key), 3000)
-            Hub.openSettingsForKey(this)
-            return
-        }
-        // No field to type into, but the app has a microphone button of its own: press it, as a finger would, and
-        // the app asks the recogniser for its text, which it knows what to do with (a search box, for one).
+        keyHeld = true
+        val settings = Settings(this)
         val root = rootInActiveWindow
-        if (root?.findFocus(AccessibilityNodeInfo.FOCUS_INPUT)?.isEditable != true) {
-            val button = clickable(findMicButton(root))
-            if (button != null && button.performAction(AccessibilityNodeInfo.ACTION_CLICK)) {
-                Log.i(TAG, "pressed the app's microphone button")
-                return
+        val field = root?.findFocus(AccessibilityNodeInfo.FOCUS_INPUT)?.takeIf { it.isEditable }
+        // Only look for buttons when there is no field, and only for the kinds that are switched on.
+        val noField = field == null && Hub.recognition == null
+        val mic = if (noField && settings.pressMicButton) clickable(find(root) { MicButton.matches(it.viewIdResourceName, it.contentDescription) }) else null
+        val search = if (noField && mic == null && settings.openSearchButton) clickable(find(root) { SearchButton.matches(it.viewIdResourceName, it.contentDescription) }) else null
+        when (KeyPlan.decide(Hub.recognition != null, field != null, settings.pressMicButton, mic != null, settings.openSearchButton, search != null, settings.hasKey)) {
+            KeyPlan.Action.Ignore -> Unit // nothing to speak to: no sound, no note, no request
+            KeyPlan.Action.NeedKey -> {
+                overlay.show(getString(R.string.set_key), 3000)
+                Hub.openSettingsForKey(this)
             }
+            KeyPlan.Action.PressMicButton -> {
+                // The app asks the recogniser for its text, which it knows what to do with (a search box, for one).
+                Log.i(TAG, "pressed the app's microphone button")
+                mic?.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+            }
+            KeyPlan.Action.OpenSearch -> {
+                Log.i(TAG, "pressed the app's search button")
+                if (search?.performAction(AccessibilityNodeInfo.ACTION_CLICK) == true) waitForField(0)
+            }
+            KeyPlan.Action.Dictate -> dictate()
         }
+    }
+
+    /** The search screen opens and its field takes focus a moment later: wait for it while the button is still held. */
+    private fun waitForField(tries: Int) {
+        main.postDelayed({
+            if (!keyHeld) return@postDelayed
+            val field = rootInActiveWindow?.findFocus(AccessibilityNodeInfo.FOCUS_INPUT)?.takeIf { it.isEditable }
+            when {
+                field != null -> dictate()
+                tries < 14 -> waitForField(tries + 1)
+            }
+        }, 150)
+    }
+
+    private fun dictate() {
         dictation?.cancel()
         overlay.show(getString(R.string.overlay_listening))
         val mine = Hub.session(this, object : VoiceSession.Listener {
@@ -76,15 +100,15 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
         Hub.run(mine)
     }
 
-    /** The first thing on screen that looks like a microphone button, looking through at most [LOOK_AT] elements. */
-    private fun findMicButton(root: AccessibilityNodeInfo?): AccessibilityNodeInfo? {
+    /** The first element of the window, looking through at most [LOOK_AT], that is visible, enabled and fits. */
+    private fun find(root: AccessibilityNodeInfo?, fits: (AccessibilityNodeInfo) -> Boolean): AccessibilityNodeInfo? {
         if (root == null) return null
         val queue = ArrayDeque<AccessibilityNodeInfo>().apply { add(root) }
         var seen = 0
         while (queue.isNotEmpty() && seen < LOOK_AT) {
             val node = queue.removeFirst()
             seen++
-            if (node.isVisibleToUser && node.isEnabled && MicButton.matches(node.viewIdResourceName, node.contentDescription)) return node
+            if (node.isVisibleToUser && node.isEnabled && fits(node)) return node
             for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
         }
         return null
@@ -103,6 +127,7 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
     }
 
     private fun keyUp() {
+        keyHeld = false
         (Hub.recognition ?: dictation)?.finish()
     }
 
@@ -118,7 +143,7 @@ class HyperVoiceAccessibilityService : AccessibilityService() {
         val field = rootInActiveWindow?.findFocus(AccessibilityNodeInfo.FOCUS_INPUT)
         Log.i(TAG, "focused input: ${field?.className}, editable ${field?.isEditable}")
         if (field == null || !field.isEditable) {
-            (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("HyperVoice", text))
+            // The field went away while the phrase was being recognised. Nothing is copied anywhere; the text is shown.
             overlay.show(getString(R.string.overlay_no_field, text), 3500)
             return
         }

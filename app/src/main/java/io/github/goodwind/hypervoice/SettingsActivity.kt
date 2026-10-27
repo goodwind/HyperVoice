@@ -19,7 +19,10 @@ class SettingsActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         settings = Settings(this)
-        intent.getStringExtra(EXTRA_KEY)?.let { settings.key = it } // for setting it up from a computer with adb
+        // For setting it up from a computer with adb: the key, and the two options.
+        intent.getStringExtra(EXTRA_KEY)?.let { settings.key = it }
+        if (intent.hasExtra(EXTRA_PRESS_MIC)) settings.pressMicButton = intent.getBooleanExtra(EXTRA_PRESS_MIC, true)
+        if (intent.hasExtra(EXTRA_OPEN_SEARCH)) settings.openSearchButton = intent.getBooleanExtra(EXTRA_OPEN_SEARCH, false)
         val needsKey = intent.getBooleanExtra(EXTRA_NO_KEY, false) && !settings.hasKey
 
         val root = LinearLayout(this).apply {
@@ -34,13 +37,21 @@ class SettingsActivity : Activity() {
 
         val list = ListView(this).apply {
             choiceMode = ListView.CHOICE_MODE_MULTIPLE
-            adapter = ArrayAdapter(this@SettingsActivity, android.R.layout.simple_list_item_multiple_choice, Languages.all.map { "${it.name}  (${it.english})" })
+            adapter = ArrayAdapter(
+                this@SettingsActivity,
+                android.R.layout.simple_list_item_multiple_choice,
+                listOf(getString(R.string.option_press_mic), getString(R.string.option_open_search)) + Languages.all.map { "${it.name}  (${it.english})" },
+            )
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f)
         }
         val chosen = settings.languages
-        Languages.all.forEachIndexed { i, l -> list.setItemChecked(i, l.code in chosen) }
+        list.setItemChecked(0, settings.pressMicButton)
+        list.setItemChecked(1, settings.openSearchButton)
+        Languages.all.forEachIndexed { i, l -> list.setItemChecked(OPTIONS + i, l.code in chosen) }
         list.setOnItemClickListener { _, _, _, _ ->
-            settings.languages = Languages.all.filterIndexed { i, _ -> list.isItemChecked(i) }.map { it.code }
+            settings.pressMicButton = list.isItemChecked(0)
+            settings.openSearchButton = list.isItemChecked(1)
+            settings.languages = Languages.all.filterIndexed { i, _ -> list.isItemChecked(OPTIONS + i) }.map { it.code }
             refresh()
         }
         root.addView(list)
@@ -73,7 +84,10 @@ class SettingsActivity : Activity() {
     }
 
     companion object {
+        private const val OPTIONS = 2
         const val EXTRA_NO_KEY = "no_key"
         const val EXTRA_KEY = "groq_key"
+        const val EXTRA_PRESS_MIC = "press_mic"
+        const val EXTRA_OPEN_SEARCH = "open_search"
     }
 }

@@ -4,7 +4,7 @@
 
     <string name="overlay_listening">Слушаю…</string>
     <string name="overlay_recognizing">Распознаю…</string>
-    <string name="overlay_no_field">Нет поля ввода (текст в буфере): %1$s</string>
+    <string name="overlay_no_field">Поле ввода пропало: %1$s</string>
     <string name="set_key">Настройте ключ для Whisper</string>
 
     <string name="notice_no_speech">Не расслышал</string>
@@ -23,5 +23,7 @@
     <string name="settings_recognizer_ours">Голосовой ввод в приложениях (распознаватель): HyperVoice</string>
     <string name="settings_recognizer_other">Голосовой ввод в приложениях (распознаватель): другой</string>
     <string name="settings_languages">Языки: %1$s</string>
-    <string name="settings_languages_header">Языки, которые услышит Whisper (OK: включить или выключить):</string>
+    <string name="settings_languages_header">Параметры и языки (OK: включить или выключить):</string>
+    <string name="option_press_mic">Нажимать кнопку микрофона приложения, если нет поля ввода</string>
+    <string name="option_open_search">Открывать поиск приложения и диктовать (эксперимент)</string>
 </resources>

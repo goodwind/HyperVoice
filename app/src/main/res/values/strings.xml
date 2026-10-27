@@ -5,7 +5,7 @@
 
     <string name="overlay_listening">Listening…</string>
     <string name="overlay_recognizing">Recognizing…</string>
-    <string name="overlay_no_field">No input field (text copied): %1$s</string>
+    <string name="overlay_no_field">No input field: %1$s</string>
     <string name="set_key">Set up the Whisper key</string>
 
     <string name="notice_no_speech">Didn’t catch that</string>
@@ -24,5 +24,7 @@
     <string name="settings_recognizer_ours">Voice input in apps (recognizer): HyperVoice</string>
     <string name="settings_recognizer_other">Voice input in apps (recognizer): another one</string>
     <string name="settings_languages">Languages: %1$s</string>
-    <string name="settings_languages_header">Languages Whisper will hear (OK toggles):</string>
+    <string name="settings_languages_header">Options and languages (OK toggles):</string>
+    <string name="option_press_mic">Press an app’s microphone button when no field is in focus</string>
+    <string name="option_open_search">Open an app’s search, then dictate (experimental)</string>
 </resources>
