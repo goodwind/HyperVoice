@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "HyperVoice"
+include(":shared")
 include(":app")
