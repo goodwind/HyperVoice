@@ -78,6 +78,8 @@ class FocusRow(context: Context, name: String, state: String?, private val slide
         paint()
     }
 
+    fun setName(text: String) { name.text = text }
+
     fun setState(text: String) { state.text = text }
 
     /** For a row made with a slider. */

@@ -14,7 +14,13 @@ import io.github.goodwind.hypervoice.core.KeyCheck
 import io.github.goodwind.hypervoice.core.Languages
 import io.github.goodwind.hypervoice.core.SetupStatus
 import io.github.goodwind.hypervoice.core.SetupWeb
+import io.github.goodwind.hypervoice.shared.ApkInstaller
+import io.github.goodwind.hypervoice.shared.Downloads
 import io.github.goodwind.hypervoice.shared.HttpTransport
+import io.github.goodwind.hypervoice.shared.Update
+import io.github.goodwind.hypervoice.shared.UpdateChecker
+import io.github.goodwind.hypervoice.shared.UpdateResult
+import java.io.File
 import java.security.SecureRandom
 
 /**
@@ -27,6 +33,10 @@ class SettingsActivity : Activity() {
     private lateinit var pressMic: FocusRow
     private lateinit var openSearch: FocusRow
     private lateinit var languages: FocusRow
+    private lateinit var update: FocusRow
+    private var offered: Update? = null
+    private var updating = false
+    private var checked = false
     private var server: SetupServer? = null
     private var url: String? = null
     private var failed = false
@@ -53,12 +63,14 @@ class SettingsActivity : Activity() {
         languages = FocusRow(this, getString(R.string.settings_languages), null) {
             startActivity(Intent(this, LanguagesActivity::class.java))
         }
+        update = FocusRow(this, "", null) { installUpdate() }.apply { visibility = View.GONE }
         val rows = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(0, dp(14), 0, 0)
             addView(pressMic)
             addView(openSearch)
             addView(languages)
+            addView(update)
         }
         val column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -78,6 +90,7 @@ class SettingsActivity : Activity() {
     override fun onResume() {
         super.onResume()
         startServer()
+        checkForUpdate()
         refresh()
         refreshRows()
     }
@@ -86,6 +99,45 @@ class SettingsActivity : Activity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus && currentFocus !is FocusRow && currentFocus !is FocusButton) (header.findViewWithTag<View>(REPAIR) ?: pressMic).requestFocus()
+    }
+
+    /** Asks GitHub once per visit to this screen; nothing is shown unless there is something to install. */
+    private fun checkForUpdate() {
+        if (checked) return
+        checked = true
+        val installed = try { packageManager.getPackageInfo(packageName, 0).versionName.orEmpty() } catch (e: Exception) { return }
+        Thread {
+            val result = UpdateChecker(HttpTransport(), REPO).check(installed) { it.startsWith("HyperVoice-") }
+            if (result is UpdateResult.Available) runOnUiThread { offered = result.update; showUpdate(getString(R.string.update_available, result.update.version), getString(R.string.update_install)) }
+        }.start()
+    }
+
+    private fun showUpdate(name: String, state: String?) {
+        update.visibility = View.VISIBLE
+        update.setName(name)
+        update.setState(state.orEmpty())
+    }
+
+    private fun installUpdate() {
+        val u = offered ?: return
+        if (updating) return
+        updating = true
+        val file = File(cacheDir, "update/${u.apkName}").also { it.parentFile?.mkdirs() }
+        Thread {
+            try {
+                Downloads.fetch(u.apkUrl, file, u.sha256) { done, total ->
+                    if (total > 0) runOnUiThread { showUpdate(getString(R.string.update_downloading, (done * 100 / total).toInt()), null) }
+                }
+                runOnUiThread { showUpdate(getString(R.string.update_installing), null) }
+                ApkInstaller.install(this, file) { problem ->
+                    updating = false
+                    if (problem != null) runOnUiThread { showUpdate(getString(R.string.update_failed, problem), getString(R.string.update_install)) }
+                }
+            } catch (e: Exception) {
+                updating = false
+                runOnUiThread { showUpdate(getString(R.string.update_failed, e.message.orEmpty()), getString(R.string.update_install)) }
+            }
+        }.start()
     }
 
     override fun onPause() {
@@ -208,6 +260,7 @@ class SettingsActivity : Activity() {
 
     companion object {
         private const val REPAIR = "repair"
+        private const val REPO = "goodwind/HyperVoice"
         const val EXTRA_NO_KEY = "no_key"
         const val EXTRA_KEY = "groq_key"
         const val EXTRA_PRESS_MIC = "press_mic"

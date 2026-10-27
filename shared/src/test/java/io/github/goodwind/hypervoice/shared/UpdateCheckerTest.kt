@@ -16,7 +16,9 @@ private class FakeGet(private val reply: Any) : Transport {
 }
 
 class UpdateCheckerTest {
-    private val body = """{"tag_name":"v0.2.0","draft":false,"prerelease":false,"html_url":"h","assets":[{"name":"HyperVoice-0.2.0.apk","browser_download_url":"u","size":1}]}"""
+    private fun body(url: String = "https://github.com/a/b/releases/download/v0.2.0/HyperVoice-0.2.0.apk") =
+        """{"tag_name":"v0.2.0","draft":false,"prerelease":false,"html_url":"h","assets":[{"name":"HyperVoice-0.2.0.apk","browser_download_url":"$url","size":1}]}"""
+    private val body = body()
     private val apk = { n: String -> n.startsWith("HyperVoice-") }
 
     @Test fun `it asks github for the latest release of the repository`() {
@@ -40,5 +42,11 @@ class UpdateCheckerTest {
     @Test fun `a refusal or a lost connection is a failure that says so`() {
         assertTrue(UpdateChecker(FakeGet(Reply(403, "{}")), "a/b").check("0.1.0", apk) is UpdateResult.Failed)
         assertTrue(UpdateChecker(FakeGet(IOException("down")), "a/b").check("0.1.0", apk) is UpdateResult.Failed)
+    }
+
+    @Test fun `a file that is not of this repository's releases is not offered`() {
+        for (url in listOf("https://evil.example/releases/download/v0.2.0/x.apk", "http://github.com/a/b/releases/download/v0.2.0/x.apk", "https://github.com/a/other/releases/download/v0.2.0/x.apk", "https://github.com/a/b/releases/download/../../x.apk")) {
+            assertEquals(url, UpdateResult.BadAnswer, UpdateChecker(FakeGet(Reply(200, body(url))), "a/b").check("0.1.0", apk))
+        }
     }
 }

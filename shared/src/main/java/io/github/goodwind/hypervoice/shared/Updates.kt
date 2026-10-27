@@ -48,14 +48,17 @@ object Updates {
 class UpdateChecker(private val transport: Transport, private val repo: String) {
     fun check(installed: String, wanted: (String) -> Boolean): UpdateResult {
         val reply = try {
-            transport.get(Request("https://api.github.com/repos/$repo/releases/latest", mapOf("Accept" to "application/vnd.github+json", "User-Agent" to "HyperVoice")))
+            transport.get(Request("https://api.github.com/repos/$repo/releases/latest", mapOf("Accept" to "application/vnd.github+json", "User-Agent" to repo.substringAfter('/'))))
         } catch (e: IOException) {
             return UpdateResult.Failed(e.message ?: "io")
         }
         return when (reply.code) {
-            200 -> Updates.latest(reply.body, installed, wanted)
+            200 -> Updates.latest(reply.body, installed, wanted).let { if (it is UpdateResult.Available && !ours(it.update.apkUrl)) UpdateResult.BadAnswer else it }
             404 -> UpdateResult.NoRelease
             else -> UpdateResult.Failed("HTTP ${reply.code}")
         }
     }
+
+    /** Only a file of this repository's own releases is offered, however the answer came to say otherwise. */
+    private fun ours(url: String) = url.startsWith("https://github.com/$repo/releases/download/") && ".." !in url
 }
