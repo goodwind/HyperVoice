@@ -33,8 +33,10 @@ class SettingsActivity : Activity() {
     private lateinit var pressMic: FocusRow
     private lateinit var openSearch: FocusRow
     private lateinit var languages: FocusRow
-    private var updateLine: String? = null
-    private var updateReady = false
+    private var updateHead: String? = null
+    private var updateBusy: String? = null
+    private var updateError = false
+    private var updateFraction = 0f
     private var offered: Update? = null
     private var updating = false
     private var checked = false
@@ -107,14 +109,19 @@ class SettingsActivity : Activity() {
         val installed = try { packageManager.getPackageInfo(packageName, 0).versionName.orEmpty() } catch (e: Exception) { return }
         Thread {
             val result = UpdateChecker(HttpTransport(), REPO).check(installed) { it.startsWith("HyperVoice-") }
-            if (result is UpdateResult.Available) runOnUiThread { offered = result.update; showUpdate(getString(R.string.update_available, result.update.version), getString(R.string.update_install)) }
+            if (result is UpdateResult.Available) runOnUiThread { offered = result.update; showUpdate(getString(R.string.update_available, result.update.version)) }
         }.start()
     }
 
-    /** What the header says about an update: [state] is the action it offers (null while it is being got). */
-    private fun showUpdate(name: String, state: String?) {
-        updateLine = if (state != null) "$name · $state" else name
-        updateReady = state != null
+    /**
+     * What the header says about an update: a [head] line, and under it the button to install, or while it is
+     * being got ([busy] is its words) a bar that fills to [fraction].
+     */
+    private fun showUpdate(head: String = updateHead.orEmpty(), busy: String? = null, fraction: Float = 0f, error: Boolean = false) {
+        updateHead = head
+        updateBusy = busy
+        updateFraction = fraction
+        updateError = error
         refresh()
         header.post {
             if (currentFocus !is FocusRow && currentFocus !is FocusButton) (header.findViewWithTag<View>(UPDATE) ?: header.findViewWithTag<View>(REPAIR) ?: pressMic).requestFocus()
@@ -128,17 +135,18 @@ class SettingsActivity : Activity() {
         val file = File(cacheDir, "update/${u.apkName}").also { it.parentFile?.mkdirs() }
         Thread {
             try {
+                runOnUiThread { showUpdate(getString(R.string.update_available, u.version), busy = getString(R.string.update_downloading)) }
                 Downloads.fetch(u.apkUrl, file, u.sha256) { done, total ->
-                    if (total > 0) runOnUiThread { showUpdate(getString(R.string.update_downloading, (done * 100 / total).toInt()), null) }
+                    if (total > 0) runOnUiThread { showUpdate(busy = getString(R.string.update_downloading), fraction = done.toFloat() / total) }
                 }
-                runOnUiThread { showUpdate(getString(R.string.update_installing), null) }
+                runOnUiThread { showUpdate(busy = getString(R.string.update_installing), fraction = 1f) }
                 ApkInstaller.install(this, file) { problem ->
                     updating = false
-                    if (problem != null) runOnUiThread { showUpdate(getString(R.string.update_failed, problem), getString(R.string.update_install)) }
+                    if (problem != null) runOnUiThread { showUpdate(getString(R.string.update_failed, problem), error = true) }
                 }
             } catch (e: Exception) {
                 updating = false
-                runOnUiThread { showUpdate(getString(R.string.update_failed, e.message.orEmpty()), getString(R.string.update_install)) }
+                runOnUiThread { showUpdate(getString(R.string.update_failed, e.message.orEmpty()), error = true) }
             }
         }.start()
     }
@@ -217,10 +225,12 @@ class SettingsActivity : Activity() {
         } else if (!ready && !snapshot.canRepair && (!snapshot.accessibilityOn || !snapshot.recognizerIsOurs)) {
             left.addView(label(getString(R.string.hint_no_repair), 13f, Ink.SECONDARY).apply { setPadding(0, dp(12), 0, 0) })
         }
-        updateLine?.let { line ->
-            val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(14) }
-            if (updateReady) left.addView(FocusButton(this, line) { installUpdate() }.apply { tag = UPDATE }, params)
-            else left.addView(label(line, 16f, Ink.ACCENT, bold = true), params)
+        updateHead?.let { head ->
+            left.addView(label(head, 16f, if (updateError) Ink.ORANGE else Ink.LABEL, bold = true).apply { setPadding(0, dp(14), 0, dp(8)) })
+            val button = LinearLayout.LayoutParams(dp(340), ViewGroup.LayoutParams.WRAP_CONTENT)
+            val busy = updateBusy
+            if (busy != null) left.addView(ProgressPill(this, busy, updateFraction), button)
+            else left.addView(FocusButton(this, getString(R.string.update_install)) { installUpdate() }.apply { tag = UPDATE }, button)
         }
         header.addView(left, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
 

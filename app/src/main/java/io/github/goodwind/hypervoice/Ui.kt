@@ -109,3 +109,37 @@ class FocusButton(context: Context, text: String, onClick: () -> Unit) : TextVie
         setTextColor(if (hasFocus()) Ink.ON_FOCUS else Ink.LABEL)
     }
 }
+
+/** A pill that fills with blue from the left as [fraction] goes from 0 to 1, with its words over it. */
+class ProgressPill(context: Context, text: String, fraction: Float) : TextView(context) {
+    private val fill = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)
+    private val clip = android.graphics.Path()
+    var fraction = fraction.coerceIn(0f, 1f)
+        set(value) { field = value.coerceIn(0f, 1f); invalidate() }
+
+    init {
+        this.text = text
+        textSize = 16f
+        gravity = Gravity.CENTER
+        setTextColor(Color.WHITE)
+        setPadding(context.dp(20), context.dp(10), context.dp(20), context.dp(10))
+        minWidth = context.dp(340)
+        setTypeface(typeface, Typeface.BOLD)
+    }
+
+    override fun onDraw(canvas: android.graphics.Canvas) {
+        val r = context.dp(14).toFloat()
+        val w = width.toFloat()
+        val h = height.toFloat()
+        clip.reset()
+        clip.addRoundRect(0f, 0f, w, h, r, r, android.graphics.Path.Direction.CW)
+        canvas.save()
+        canvas.clipPath(clip)
+        fill.color = Ink.FILL
+        canvas.drawRect(0f, 0f, w, h, fill)
+        fill.color = Ink.ACCENT
+        canvas.drawRect(0f, 0f, w * fraction, h, fill)
+        canvas.restore()
+        super.onDraw(canvas)
+    }
+}

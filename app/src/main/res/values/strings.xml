@@ -39,7 +39,7 @@
     <string name="footer_line">HyperVoice %1$s · © 2026 Alexandr Serdtsev · Apache License 2.0 · github.com/goodwind/HyperVoice</string>
     <string name="update_available">Update %1$s is available</string>
     <string name="update_install">Install</string>
-    <string name="update_downloading">Downloading the update… %1$d%%</string>
+    <string name="update_downloading">Downloading the update…</string>
     <string name="update_installing">Handing the update to the installer…</string>
     <string name="update_failed">Update failed: %1$s</string>
 </resources>
