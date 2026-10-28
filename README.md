@@ -42,18 +42,18 @@ HyperVoice listens to it.
   the TV by default; you choose in the app), so "включи клип Imagine Dragons" comes out as written.
 - **Set up on the TV itself.** The app's screen shows whether everything is in place, with a *Fix* button for what
   it can put right, and a QR code that opens a page on your phone to give it the Whisper key.
-- **Updates.** It checks GitHub for a newer release and offers to install it (you confirm).
+- **Updates.** It checks GitHub for a newer release and offers to install it (you confirm). Some TV firmware (Xiaomi) shows its own warning that the file was not checked by its store; choose to continue.
 - In the 20 languages of [HyperMissions](https://github.com/goodwind/HyperMissions).
 - A small note over the screen says what is going on: *Listening…*, *Recognizing…*, or what went wrong.
 
 ## Install
 
-Download `HyperVoice-0.1.0.apk` from the [latest release](https://github.com/goodwind/HyperVoice/releases/latest)
+Download `HyperVoice-0.1.1.apk` from the [latest release](https://github.com/goodwind/HyperVoice/releases/latest)
 (check its SHA-256 against the release page) and install it over the network:
 
 ```bash
 adb connect <tv-ip>:5555
-adb install HyperVoice-0.1.0.apk
+adb install HyperVoice-0.1.1.apk
 adb shell pm grant io.github.goodwind.hypervoice android.permission.RECORD_AUDIO
 # Once, so that the app's Fix button can switch the two settings below on again if they are ever lost:
 adb shell pm grant io.github.goodwind.hypervoice android.permission.WRITE_SECURE_SETTINGS

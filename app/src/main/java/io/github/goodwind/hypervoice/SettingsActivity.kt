@@ -90,6 +90,11 @@ class SettingsActivity : Activity() {
 
     override fun onResume() {
         super.onResume()
+        // Back from the installer's screen without installing (the app would be gone if it had): offer the update again.
+        if (updating && updateBusy == getString(R.string.update_installing)) {
+            updating = false
+            showUpdate()
+        }
         startServer()
         checkForUpdate()
         refresh()

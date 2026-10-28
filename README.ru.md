@@ -43,18 +43,18 @@ HyperVoice его слушает.
   ТВ, в приложении можно выбрать), поэтому «включи клип Imagine Dragons» получается именно так.
 - **Настройка прямо на ТВ.** Экран приложения показывает, всё ли на месте, с кнопкой «Починить» для того, что оно
   может поправить само, и QR-кодом: он открывает на телефоне страницу, куда вводится ключ Whisper.
-- **Обновления.** Приложение проверяет релизы на GitHub и предлагает поставить новый (вы подтверждаете).
+- **Обновления.** Приложение проверяет релизы на GitHub и предлагает поставить новый (вы подтверждаете). Некоторые прошивки ТВ (Xiaomi) показывают своё предупреждение, что файл не проверен их магазином; выберите «продолжить».
 - 20 языков интерфейса, как в [HyperMissions](https://github.com/goodwind/HyperMissions).
 - Небольшая плашка на экране показывает, что происходит: *Слушаю…*, *Распознаю…* или что пошло не так.
 
 ## Установка
 
-Скачайте `HyperVoice-0.1.0.apk` из [последнего релиза](https://github.com/goodwind/HyperVoice/releases/latest)
+Скачайте `HyperVoice-0.1.1.apk` из [последнего релиза](https://github.com/goodwind/HyperVoice/releases/latest)
 (сверьте его SHA-256 со страницей релиза) и установите по сети:
 
 ```bash
 adb connect <ip-тв>:5555
-adb install HyperVoice-0.1.0.apk
+adb install HyperVoice-0.1.1.apk
 adb shell pm grant io.github.goodwind.hypervoice android.permission.RECORD_AUDIO
 # Один раз, чтобы кнопка «Починить» в приложении могла вернуть две настройки ниже, если они слетят:
 adb shell pm grant io.github.goodwind.hypervoice android.permission.WRITE_SECURE_SETTINGS
