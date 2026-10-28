@@ -18,6 +18,12 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.HyperVoice">
 
+        <provider
+            android:name="io.github.goodwind.hypervoice.shared.UpdateFileProvider"
+            android:authorities="${applicationId}.updates"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+
         <activity android:name=".SettingsActivity" android:exported="true" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
